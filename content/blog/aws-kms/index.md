@@ -20,3 +20,9 @@ Assigned users for either administrative usage or encrypt/decrypt usage for the 
 3) AWS KMS re-encrypt
 
 4) AWS KMS enable-key-rotation
+
+## Envelope Encryption 
+
+Custome Master key is used to decrypt the data key and the data key(envelope key) is used to decrypt the actual data
+
+![decrypt](./decrypt.jpg)
