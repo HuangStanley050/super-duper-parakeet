@@ -13,13 +13,13 @@ Assigned users for either administrative usage or encrypt/decrypt usage for the 
 
 ## The API for AWS KMS 
 
-1) AWS KMS encrypt
+* aws kms encrypt
 
-2) AWS KMS decrypt
+* aws kms decrypt
 
-3) AWS KMS re-encrypt
+* aws kms re-encrypt
 
-4) AWS KMS enable-key-rotation
+* aws kms enable-key-rotation
 
 ## Envelope Encryption 
 
