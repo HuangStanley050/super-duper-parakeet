@@ -49,6 +49,7 @@ class BlogIndex extends React.Component {
             justifyContent: 'space-between',
             alignItems: 'center',
             listStyle: 'none',
+
             padding: 0,
           }}
         >

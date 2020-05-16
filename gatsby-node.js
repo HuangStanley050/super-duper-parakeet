@@ -3,7 +3,6 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-  
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   return graphql(
@@ -50,8 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
     })
 
     // Create blog post list pages
-    const postsPerPage = 2;
-    const numPages = Math.ceil(posts.length / postsPerPage);
+    const postsPerPage = 5
+    const numPages = Math.ceil(posts.length / postsPerPage)
 
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
@@ -61,10 +60,10 @@ exports.createPages = ({ graphql, actions }) => {
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,
-          currentPage: i + 1
+          currentPage: i + 1,
         },
-      });
-    });
+      })
+    })
   })
 }
 
