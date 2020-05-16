@@ -1,12 +1,12 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Paginated Blog',
-    author: 'Kyle Mathews',
+    title: 'AWS Associate Developer Certification Journey',
+    author: 'Stanley Huang',
     description:
-      'A paginated starter blog demonstrating what Gatsby can do. Extension of gatsby-starter-blog.',
-    siteUrl: 'https://nickymeuleman.github.io/gatsby-paginated-blog/',
+      'A blog that documents what I learned on my way to get AWS certified',
+    siteUrl: 'https://www.github.com',
     social: {
-      twitter: `kylemathews`,
+      twitter: `infamousgodhand`,
     },
   },
   pathPrefix: '/gatsby-paginated-blog',
