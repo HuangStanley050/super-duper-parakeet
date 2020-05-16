@@ -1,6 +1,6 @@
 ---
 title: Learning Strategy
-date: '2015-05-16'
+date: '2020-05-16'
 ---
 
 ### Get as much knowledge and background as I can while utilize the followings:
