@@ -26,3 +26,5 @@ _IAM is for users inside the AWS environment_, Cognito is for everything else in
 User pools are for authentication (identify verification). With a user pool, your app users can sign in through the user pool or federate through a third-party identity provider (IdP).
 
 Identity pools are for authorization (access control). You can use identity pools to create unique identities for users and give them access to other AWS services.
+
+![diff](./difference.jpg)
