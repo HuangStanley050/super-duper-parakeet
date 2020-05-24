@@ -28,3 +28,15 @@ You can put a load balancer in front of these ec2 machines.
 **Conditionals**
 
 **Metadata**
+
+You can delete the cloudformation template and it will delete all the resources that it created in the first place.
+
+## Identify resources used in the cloudformation like this:
+
+(224 resources!!)
+
+**AWS::aws-production-name::data-type-name**
+
+## Why use parameters in CloudFormation?
+
+If you want to re use a cloudformation template across the organization or if the input cant be know ahead of the time
