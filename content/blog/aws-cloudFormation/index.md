@@ -40,3 +40,34 @@ You can delete the cloudformation template and it will delete all the resources 
 ## Why use parameters in CloudFormation?
 
 If you want to re use a cloudformation template across the organization or if the input cant be know ahead of the time
+
+example:
+
+```yaml
+Parameters:
+  MyVpc:
+    Description: IP address
+    Type: Number
+
+mySubnet:
+  Type: AWS::EC2::Subnet
+  Properties:
+    VpcId: !Ref MyVpc
+```
+
+### Mapping
+
+![map](./mapping.jpg)
+
+### Output
+
+Link between different cloudformations with the output values but you must export them first before you can import.
+
+![output](./output.jpg)
+
+```yaml
+SecurityGroup:
+  - !ImportValue SSHSecurityGroup
+```
+
+![import](./import.jpg)
