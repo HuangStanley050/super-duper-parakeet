@@ -37,10 +37,12 @@ Meaning that it is running on at least 2 data centers, it can survive a data cen
 
 # Three Types of AWS managed load balancers
 
-## Classic Load Balancer (HTTP,HTTPS,TCP) 2009 V2
+## Classic Load Balancer (HTTP,HTTPS,TCP) 2009 V1
+
+![security](./security.jpg)
 
 ## Application Load Balancer (HTTP,HTTPS,Websocket) 2016 V2
 
-## Network Load Balancer (TCP,TLS,UDP) 2017 V2
+![app](./appLoad.jpg)
 
-![security](./security.jpg)
+## Network Load Balancer (TCP,TLS,UDP) 2017 V2
