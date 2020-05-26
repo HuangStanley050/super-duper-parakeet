@@ -46,3 +46,29 @@ Meaning that it is running on at least 2 data centers, it can survive a data cen
 ![app](./appLoad.jpg)
 
 ## Network Load Balancer (TCP,TLS,UDP) 2017 V2
+
+![network](./networkLoad.jpg)
+
+## Load Balance stickiness
+
+<u>It means same client always get directed to the same ec2 instance behind load balancer</u>
+
+Applicable for Classic and Application Load balancer
+
+<u>Use case: make sure a user doesn't lose his session data but it might bring inbalance to the instances.</u>
+
+## Cross zone load balancer
+
+Ditribute all traffic to all instances in all AZ evenly
+
+![cross](./crossLoad.jpg)
+
+## SSL/TLS
+
+![SSL](./sni.jpg)
+
+## Connection Draining
+
+Time to complete the request while the instance is getting de register or terminated or unhealthy.
+
+Stop sending request to the instance which is de registering
