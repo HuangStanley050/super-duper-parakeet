@@ -34,3 +34,13 @@ Meaning that it is running on at least 2 data centers, it can survive a data cen
 7. High availability across zones
 
 8. Separate public and private traffic
+
+# Three Types of AWS managed load balancers
+
+## Classic Load Balancer (HTTP,HTTPS,TCP) 2009 V2
+
+## Application Load Balancer (HTTP,HTTPS,Websocket) 2016 V2
+
+## Network Load Balancer (TCP,TLS,UDP) 2017 V2
+
+![security](./security.jpg)
