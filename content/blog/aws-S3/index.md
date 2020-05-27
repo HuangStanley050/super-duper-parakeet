@@ -68,3 +68,15 @@ example: <u>prefix</u>---> **dir/stuff**
 * Must use HTTPS
 
 * Encryption key must be provided in every HTTP header for every request
+
+**Client side encryption**
+
+- Client must encrypt data before sending to s3
+
+- Client also must decrypt the data received from s3
+
+* Client manage the key and the whole encryption cycle
+
+## Security Policy for the bucket
+
+![security](./security.jpg)
