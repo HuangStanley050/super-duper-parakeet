@@ -34,3 +34,5 @@ the key is composed of **prefix** and **object name**
 example: <u>prefix</u>---> **dir/stuff**
 
 <u>object name</u>---> **myFile.jpg**
+
+### There is no directory in bucket
