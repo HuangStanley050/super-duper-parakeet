@@ -80,3 +80,9 @@ example: <u>prefix</u>---> **dir/stuff**
 ## Security Policy for the bucket
 
 ![security](./security.jpg)
+
+## S3 hosted websites
+
+**Need to remember to change the bucket access to public before hosting the static site**
+
+**Also need to generate a bucket policy as well**
