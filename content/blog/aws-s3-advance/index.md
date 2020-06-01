@@ -18,3 +18,31 @@ S3 default encryption make it easy to encrypt objects being uploaded to the buck
 **Delete operation is not replicated**
 
 **There is no chaining for buckets**
+
+### S3 storage tiers or classes
+
+- Standard
+
+- IA (Infrequent Access)
+
+- One Zone IA
+
+- Intelligent Tiering
+
+- Glacier (Archive/backup)
+
+- Glacier Deep Archive
+
+## Glacier and Deep Archive
+
+![archive](./archive.jpg)
+
+## Life cycle for moving objects between S3 classes
+
+**Transition actions**
+
+**Expiration actions**
+
+**Rules can be created for prefixes**
+
+**Rules can be created for certain object tags**
