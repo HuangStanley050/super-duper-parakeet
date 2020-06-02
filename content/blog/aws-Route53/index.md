@@ -16,3 +16,9 @@ Route 53 is a managed DNS service by AWS:
 <u>CNAME: hostname to hostname</u>
 
 <u>Alias: hostname to AWS resources</u>
+
+## What is the difference between CNAME and Alias?
+
+![cname](./cname.jpg)
+
+**CNAME only allow non root domain**
