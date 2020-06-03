@@ -24,3 +24,11 @@ EC2 instance have default metrics for "every 5 minutes" but with detailed monito
 ### Alarms
 
 ![alarm](./alarm.jpg)
+
+### Logs
+
+**To send logs to CloudWatch, make sure IAM is correct!!**
+
+### Events
+
+![event](./event.jpg)
