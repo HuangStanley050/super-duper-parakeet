@@ -28,3 +28,17 @@ X-ray SDK embedded inside your app ---> X-ray daemon ---> X-ray API ---> X-ray c
 - EC2
 
 - Elastic Beanstalk
+
+**Languages supported**
+
+1. Go
+
+2. Node
+
+3. Ruby
+
+4. Python
+
+5. Java
+
+6. .NET
