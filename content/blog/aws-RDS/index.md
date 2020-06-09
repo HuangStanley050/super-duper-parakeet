@@ -38,3 +38,13 @@ date: '2020-06-09'
 ## Backup Automatic
 
 ![backup](./rdsBackup.jpg)
+
+## Read Replicas vs Multi AZ
+
+It helps only with read operation with dbs
+
+**can make up to 5 read replicas**
+
+**within AZ, cross AZ or cross region**
+
+**Replications are async and will be eventually consistent**
