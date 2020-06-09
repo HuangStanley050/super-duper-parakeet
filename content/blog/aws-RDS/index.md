@@ -34,3 +34,7 @@ date: '2020-06-09'
 7. Scaling both vertically and horizontally
 
 8. Storaged backed by EBS
+
+## Backup Automatic
+
+![backup](./rdsBackup.jpg)
