@@ -39,7 +39,7 @@ date: '2020-06-09'
 
 ![backup](./rdsBackup.jpg)
 
-## Read Replicas vs Multi AZ
+## Read Replicas
 
 It helps only with read operation with dbs
 
@@ -48,3 +48,29 @@ It helps only with read operation with dbs
 **within AZ, cross AZ or cross region**
 
 **Replications are async and will be eventually consistent**
+
+**can be promoted to its own db**
+
+**If you need to use read replicas, need to update the connection string in the main app**
+
+### Use case:
+
+![case](./replica.jpg)
+
+### Network cost associated
+
+if they are in the same zone, no cost but if they are in different AZ, there will be cost
+
+## RDS Multi AZ (Diaster Recover)
+
+- Sync replications
+
+- Increase availability
+
+- Not used for scaling
+
+- No manual intervention in apps
+
+- One DNS name, automatic app failover to standby
+
+* **Read replicas can be set up as Multi AZ(disaster recover)**
