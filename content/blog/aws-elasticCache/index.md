@@ -12,3 +12,23 @@ Basic idea is for the application to query the Elastic Cache if it's a hit it re
 ## Example for a user session store
 
 ![sesson](./session.jpg)
+
+## Memcached vs Redis
+
+![vs](./vs.jpg)
+
+### Cache strategy
+
+**Lazy loading/Cache Aside/Lazy population**
+
+<u>Pro</u>
+
+1. Only requested data is cached
+
+2. Node failure is not fatal
+
+<u>Con</u>
+
+1. Cache miss penalty means 3 round trip
+
+2. Stale data, outdated data in cache.
