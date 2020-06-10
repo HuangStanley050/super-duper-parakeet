@@ -29,6 +29,22 @@ Basic idea is for the application to query the Elastic Cache if it's a hit it re
 
 <u>Con</u>
 
-1. Cache miss penalty means 3 round trip
+1. Cache miss penalty means 3 round trip (read pentalty)
 
 2. Stale data, outdated data in cache.
+
+**Write through / Add or update cache when DB is updated**
+
+![writethrough](./writethrough.jpg)
+
+<u>Pro</u>
+
+1. Data is never stale in cache
+
+2. Write penalty (2 calls), one for writing to RDS, one for writing to cache
+
+<u>Con</u>
+
+1. Missing data until it's added
+
+2. Alot of data churn, lots of data will never be used
