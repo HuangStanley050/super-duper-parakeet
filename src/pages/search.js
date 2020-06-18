@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../components/Layout';
 import SearchForm from '../components/SearchForm';
 import SearchResult from '../components/SearchResult';
+import SEO from '../components/seo';
 
 const Search = ({ location, data }) => {
   const [results, setResults] = useState([]);
@@ -25,6 +26,7 @@ const Search = ({ location, data }) => {
 
   return (
     <Layout location={location} title={data.site.siteMetadata.title}>
+      <SEO title={data.site.siteMetadata.title} />
       <SearchForm query={searchQuery} />
       <SearchResult query={searchQuery} results={results} />
     </Layout>

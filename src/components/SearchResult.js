@@ -2,8 +2,8 @@ import React from 'react';
 
 const SearchResults = ({ query, results }) => {
   return (
-    <section aria-label="Search results for all posts">
-      {results && query ? (
+    <section>
+      {!!results.length && query && (
         <h2
           className="search-results-count"
           id="search-results-count"
@@ -11,7 +11,7 @@ const SearchResults = ({ query, results }) => {
         >
           Found {results.length} posts on "{query}"
         </h2>
-      ) : null}
+      )}
       {results.length && (
         <ol className="search-results-list">
           {results.map(({ title, url, date, description }) => (
