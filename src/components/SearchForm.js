@@ -1,6 +1,6 @@
 import React from 'react';
-
-const SearchForm = () => {
+import { navigate } from 'gatsby';
+const SearchForm = ({ query }) => {
   return (
     <form role="search" method="get">
       <label htmlFor="search-input">
@@ -10,7 +10,10 @@ const SearchForm = () => {
         type="search"
         id="search-input"
         name="keywords"
-        onChange={() => {}}
+        onChange={e =>
+          navigate(`/search?keywords=${encodeURIComponent(e.target.value)}`)
+        }
+        value={query}
       />
       <button type="submit">Submit</button>
     </form>
