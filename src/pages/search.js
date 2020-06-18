@@ -1,17 +1,16 @@
-import React from 'react'
-import Layout from '../components/Layout'
-import SearchForm from '../components/SearchForm'
-import SearchResult from '../components/SearchResult'
+import React from 'react';
+import Layout from '../components/Layout';
+import SearchForm from '../components/SearchForm';
+import SearchResult from '../components/SearchResult';
 
 const Search = ({ location, data }) => {
   return (
     <Layout location={location} title={data.site.siteMetadata.title}>
-      <h1>search page</h1>
       <SearchForm />
       <SearchResult />
     </Layout>
-  )
-}
+  );
+};
 export const pageQuery = graphql`
   query {
     site {
@@ -20,5 +19,5 @@ export const pageQuery = graphql`
       }
     }
   }
-`
-export default Search
+`;
+export default Search;
