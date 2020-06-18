@@ -3,10 +3,10 @@ import React from 'react';
 const SearchResults = () => {
   return (
     <section aria-label="Search results for all posts">
-      <h2>Found X posts on Y</h2>
-      <ol>
+      <h2 className="search-results-count">Found X posts on Y</h2>
+      <ol className="search-results-list">
         <li>
-          <h3>
+          <h3 className="search-results-list__heading">
             <a href="#">Post 1</a>
           </h3>
           <small>May 26th, 2019</small>
@@ -18,7 +18,7 @@ const SearchResults = () => {
           </p>
         </li>
         <li>
-          <h3>
+          <h3 className="search-results-list__heading">
             <a href="#">Post 1</a>
           </h3>
           <small>May 26th, 2019</small>
