@@ -16,24 +16,40 @@ class Layout extends React.Component {
 
     if (isRootPath || isPaginatedPath) {
       header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
+        <div>
+          <h1
             style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
+              ...scale(1.5),
+              marginBottom: rhythm(1.5),
+              marginTop: 0,
             }}
-            to={`/`}
           >
-            {title}
-          </Link>
-        </h1>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/`}
+            >
+              {title}
+            </Link>
+          </h1>
+          <h4 style={{ textAlign: 'center' }}>
+            <Link
+              style={{
+                boxShadow: `none`,
+                backgroundColor: 'yellow',
+                border: `2px solid red`,
+                textDecoration: `none`,
+                color: `navy`,
+              }}
+              to={`/search`}
+            >
+              Search
+            </Link>
+          </h4>
+        </div>
       );
     } else {
       header = (
