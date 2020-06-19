@@ -1,6 +1,7 @@
 import React from 'react';
 
 const SearchResults = ({ query, results }) => {
+  console.log(results);
   return (
     <section>
       {!!results.length && query && (
@@ -12,7 +13,7 @@ const SearchResults = ({ query, results }) => {
           Found {results.length} posts on "{query}"
         </h2>
       )}
-      {results.length && (
+      {!!results.length && (
         <ol className="search-results-list">
           {results.map(({ title, url, date, description }) => (
             <li key={title}>
@@ -30,5 +31,7 @@ const SearchResults = ({ query, results }) => {
     </section>
   );
 };
+/*
 
+ */
 export default SearchResults;
