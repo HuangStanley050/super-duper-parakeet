@@ -1,18 +1,18 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import './Layout.css'
-import { rhythm, scale } from '../utils/typography'
+import React from 'react';
+import { Link } from 'gatsby';
+import './Layout.css';
+import { rhythm, scale } from '../utils/typography';
 
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
-    const isRootPath = location.pathname === `${__PATH_PREFIX__}/`
+    const { location, title, children } = this.props;
+    const isRootPath = location.pathname === `${__PATH_PREFIX__}/`;
     const pageNumber = location.pathname
       .split('/')
       .filter(Boolean)
-      .pop()
-    const isPaginatedPath = pageNumber && Boolean(pageNumber.match(/^[0-9]+$/))
-    let header
+      .pop();
+    const isPaginatedPath = pageNumber && Boolean(pageNumber.match(/^[0-9]+$/));
+    let header;
 
     if (isRootPath || isPaginatedPath) {
       header = (
@@ -34,7 +34,7 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h1>
-      )
+      );
     } else {
       header = (
         <h1
@@ -55,7 +55,7 @@ class Layout extends React.Component {
             {title}
           </Link>
         </h1>
-      )
+      );
     }
     return (
       <section style={{ backgroundColor: 'lightblue' }}>
@@ -64,6 +64,7 @@ class Layout extends React.Component {
             marginLeft: `auto`,
             marginRight: `auto`,
             maxWidth: rhythm(24),
+            minHeight: '100vh',
             padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
           }}
         >
@@ -76,8 +77,8 @@ class Layout extends React.Component {
           </footer>
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default Layout
+export default Layout;
