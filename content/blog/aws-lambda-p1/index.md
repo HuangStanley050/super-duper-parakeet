@@ -40,3 +40,17 @@ Scaling is automated.
 ## Main servies integrations
 
 ![integration](./integration.jpg)
+
+## As a REST API
+
+**Connect via------>**
+
+### Translate http to json, vice versa back to ALB and API gateway
+
+- ALB (Application Load Balancer)
+
+  Support multi header values such as query string, it will be converted to an array.
+
+  ![multi](./multi.jpg)
+
+- API Gateway
