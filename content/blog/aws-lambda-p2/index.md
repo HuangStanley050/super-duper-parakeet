@@ -33,3 +33,25 @@ date: '2020-06-30'
 
 (file event)
 S3Bucket ----> Lambda---> RDS or DynamoDB
+
+## Lambda Event source mapping
+
+- Kinesis
+
+- DynamoDB stream
+
+- SQS
+
+**All records need to be polled from the source**
+
+## Lambda Destinations
+
+**Sending result of async invocation whether success or failure to the following destinations**
+
+1. SQS
+
+2. SNS
+
+3. Lambda
+
+4. Event Bridge bus
