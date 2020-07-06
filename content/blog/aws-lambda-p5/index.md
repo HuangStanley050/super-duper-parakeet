@@ -18,3 +18,13 @@ Lambda will timeout after 3 secs, however you can increaes the time to up to 15 
 It is a temporary run time environment set up to initialize any external dependency that your lambda might needs like SDK, db connections etc...
 
 The context is maintained for sometime in anticipation for the next couple of invocations.
+
+It will have this **/temp** where you can write files during execution.
+
+### How to use /temp
+
+1. If your lambda needs to download big file to work
+
+2. if your lambda needs disk space to perform operations
+
+3. max size is 512mb
