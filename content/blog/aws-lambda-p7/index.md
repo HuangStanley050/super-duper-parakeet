@@ -1,6 +1,6 @@
 ---
 title: AWS Lambda Part 7
-date: '2020-7-11'
+date: '2020-07-11'
 ---
 
 ## Lambda external dependencies
