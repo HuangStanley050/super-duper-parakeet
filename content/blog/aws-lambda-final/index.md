@@ -24,3 +24,15 @@ date: '2020-07-14'
 2. Uncompressed deployment is 250mb (unzipped + external dependencies)
 
 3. Env size is 4k as well
+
+## Best practice
+
+**Perform heavy duty work outside of lambda**
+
+- Connect to db outside of function
+
+- Initialize AWS SDK outside of function
+
+- Put dependencies outside of lambda
+
+**Avoid using recursive code with lambda**
