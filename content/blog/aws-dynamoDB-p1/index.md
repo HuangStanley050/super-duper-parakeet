@@ -24,3 +24,13 @@ Event enabled programming through streams.
 5. Each row has attributes(columns)
 
 6. Data supported: Scalar, Document Types and Set Types
+
+### Primary Key
+
+**Option 1**
+
+![key](./primaryKey.jpg)
+
+**Option 2**
+
+![key2](./key2.jpg)
