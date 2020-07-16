@@ -40,3 +40,7 @@ Result: 10 / 4 \* 4 = 10 RCU
 Example 2: 16 eventually consistent read per second for 12kb each
 
 Result: (16 / 2) \* (12 / 4) = 24 RCU
+
+Example 3: 10 strong consistent read per second for 6kb each
+
+Result (10 \* 8) / 4 = 20RCU ( need to round up 6 to 8, increment of 4kb)
