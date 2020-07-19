@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'AWS Associate Developer Certification Journey',
+    title: 'Interesting tech info learned by me',
     author: 'Stanley Huang',
     description:
       'A blog that documents what I learned on my way to get AWS certified',
