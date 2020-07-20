@@ -24,3 +24,57 @@ Browserstack does provide example for both nightwatch and cucumber but unfortuna
 Another great example below but unfortunately it's using the deprecated nightwatch-cucumber package so it's not applicable to our current situation.
 
 [combined](https://markus.oberlehner.net/blog/acceptance-testing-with-nightwatch-and-cucumber-browserstack/)
+
+## The solution
+
+It wasn't long until I came across this from Browserstack's documentation [local-testing](https://www.browserstack.com/local-testing/automate#local-testing-with-automate).
+
+```javascript
+var browserstack = require('browserstack-local');
+
+// creates an instance of Local
+var bs_local = new browserstack.Local();
+
+// replace <browserstack-accesskey> with your key. You can also set an environment variable - "BROWSERSTACK_ACCESS_KEY".
+var bs_local_args = { key: '<browserstack-accesskey>' };
+
+// starts the Local instance with the required arguments
+bs_local.start(bs_local_args, function () {
+  console.log('Started BrowserStackLocal');
+});
+
+// check if BrowserStack local instance is running
+console.log(bs_local.isRunning());
+
+// stop the Local instance
+bs_local.stop(function () {
+  console.log('Stopped BrowserStackLocal');
+});
+```
+
+I thought I could try using the methods to establish and close the connection
+
+```javascript
+bs_local.start(bs_local_args, function () {
+  console.log('Started BrowserStackLocal');
+});
+```
+
+```javascript
+bs_local.stop(function () {
+  console.log('Stopped BrowserStackLocal');
+});
+```
+
+But to avoid the callback, I changed it to a promised based approach
+
+```javascript
+import browserstack from 'browserstack-local';
+import util from 'util';
+
+const bsLocal = new browserstack.Local();
+
+const localBrowserStackConnet = util.promisify(bsLocal.start).bind(bsLocal);
+
+const localBrowserStackDisconnect = util.promisify(bsLocal.stop).bind(bsLocal);
+```
