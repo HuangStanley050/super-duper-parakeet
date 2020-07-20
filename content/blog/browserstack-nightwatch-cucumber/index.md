@@ -78,3 +78,31 @@ const localBrowserStackConnet = util.promisify(bsLocal.start).bind(bsLocal);
 
 const localBrowserStackDisconnect = util.promisify(bsLocal.stop).bind(bsLocal);
 ```
+
+Lastly, you just need to put that into the cucumber.conf.js like below:
+
+```javascript
+const { setDefaultTimeout, AfterAll, BeforeAll } = require('cucumber');
+const {
+  createSession,
+  closeSession,
+  startWebDriver,
+  stopWebDriver,
+} = require('nightwatch-api');
+
+setDefaultTimeout(60000);
+
+BeforeAll(async () => {
+  await localBrowserStackConnet(yourConfig);
+  await startWebDriver();
+  await createSession();
+});
+
+AfterAll(async () => {
+  await localBrowserStackDisconnect();
+  await closeSession();
+  await stopWebDriver();
+});
+```
+
+## Make it work in a proxy/corporate firewall
