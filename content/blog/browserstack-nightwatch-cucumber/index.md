@@ -106,3 +106,46 @@ AfterAll(async () => {
 ```
 
 ## Make it work in a proxy/corporate firewall
+
+Currently with local testing, Browserstack supports:
+
+- Proxy with no authentication or HTTP Basic Authentication.
+
+- MITM proxy with no authentication or HTTP Basic Authentication.
+
+- PAC (Proxy Auto-Configuration) with no authentication.
+
+And the explanation on how to use them are very comprehensive, however from the friendly Browserstack support, we need to at least make sure that, the firewall needs to **disable SSL inspection for \*.browserstack.com on port 80 and 443.**
+
+And lastly we need to remember to put in the "proxy" property in the nightwatch.conf.js file like below:
+
+```javascript
+const nightwatchConfig = {
+  page_objects_path: ["page_objects"],
+  silent: !process.env.NIGHTWATCH_VERBOSE,
+  webdriver: {
+    start_process: false,
+    host: "hub-cloud.browserstack.com",
+    port: 443
+  },
+  test_settings: {
+    default: {
+      desiredCapabilities: {
+        "browserstack.user": "yourUserName",
+        "browserstack.key": "yourUserKey",
+        "browserstack.local": true,
+        "browserstack.console": "errors",
+        "browserstack.networkLogs": true,
+        browserName: "chrome",
+        acceptSslCerts: true,
+        forceLocal: true,
+        javascriptEnabled: true,
+        name: "The name of your test"
+      },
+      proxy: {
+        host: "proxy.yourcompany.com",
+        port: 9000,
+        protocol: "http"
+      }
+    },
+```
