@@ -22,3 +22,17 @@ date: '2020-07-29'
 1. BatchWriteItem (upto 25 PutItem/DeleteItem)
 
 up to 16mb per data and 400kb of data per item
+
+### Read Data
+
+1. GetItem
+
+2. BatchGetItem (up to 100 items and 16mb)
+
+### Query
+
+Return items base on:
+
+- Partition key value
+
+- Sort key value
