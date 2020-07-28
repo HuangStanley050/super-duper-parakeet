@@ -36,3 +36,11 @@ Return items base on:
 - Partition key value
 
 - Sort key value
+
+### Scans
+
+It is not very efficient and to improve the performance, you can implement:
+
+1. Parallel Scan
+
+2. Use ProjectionExpress and FilterExpression
