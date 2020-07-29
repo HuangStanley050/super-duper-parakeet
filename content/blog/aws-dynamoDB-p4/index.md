@@ -22,3 +22,17 @@ The sort key consists of exactly one scalar value:
 Example of secondary key being a time stamp
 
 ![example](./lsiExample.jpg)
+
+## Global Secondary Index (GSI)
+
+To speed on query on non key attribute.
+
+GSI = Partition key + optional sort key
+
+The index is a new table and we can project attributes to it.
+
+Must define WCU and RCU for the table
+
+Possible to modify GSI (not LSI)
+
+![example2](./gsiExample.jpg)
