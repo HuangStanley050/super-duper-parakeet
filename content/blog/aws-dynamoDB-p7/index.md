@@ -30,3 +30,17 @@ The stream can be used in real time with AWS Lambda or EC2 instances, for exampl
 3. OLD_IMAGE: the entire item, before it's modified
 
 4. NEW_AND_OLD_IMAGE: both the new and old images of the item
+
+**Important to remember:**
+
+<u>Records are not retroactively populated after stream is enabled</u>
+
+### Lambda and DynamoDB stream
+
+An event source mapping needs to be defined to read from the steam.
+
+The lambda function needs appropriate permission.
+
+The lambda functions are invoked synchronously
+
+![stream](./lambdaStream.jpg)
