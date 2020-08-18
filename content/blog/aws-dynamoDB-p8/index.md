@@ -14,3 +14,5 @@ Help reduce storage and manage size over time.
 It is enabled per row, you define a TTL column and put date in there.
 
 Typically gets deleted after 48 hours.
+
+DynamDB stream can potentially help recover the item base on events
