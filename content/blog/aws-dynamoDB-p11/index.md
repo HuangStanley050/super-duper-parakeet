@@ -19,4 +19,16 @@ Atomic writes is like you take the value modified by the first person and then a
 
 ## DynamoDB operation
 
+- Table cleanup
+
+  1. scan and delete: expensive operation
+
+  2. just drop the whole table: cheap and efficient
+
+* Copy a table
+
+  1. use AWS data pipeline.
+
+  2. create a backup and restore the backup in a new table name
+
 ## DynamoDB security
