@@ -32,3 +32,11 @@ Atomic writes is like you take the value modified by the first person and then a
   2. create a backup and restore the backup in a new table name
 
 ## DynamoDB security
+
+- VPC endpoint available without accessing to the internet
+
+- Access controlled by IAM
+
+- Encryption at rest using KMS
+
+- Encryption in transit using SSL and TLS
