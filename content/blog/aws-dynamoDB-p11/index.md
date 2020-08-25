@@ -13,6 +13,10 @@ Atomic writes is like you take the value modified by the first person and then a
 
 ## DynamoDB pattern with S3
 
+![s3](./s3.jpg)
+
+![s3Meta](./s3Meta.jpg)
+
 ## DynamoDB operation
 
 ## DynamoDB security
