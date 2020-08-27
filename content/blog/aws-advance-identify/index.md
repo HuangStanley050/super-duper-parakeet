@@ -27,6 +27,8 @@ Allows temporary and limited access to AWS services (up to 1 hour)
 
 ![cross](./cross.jpg)
 
+![mfa](./mfa.jpg)
+
 ## Advanced IAM
 
 ## Grant user permission to pass role to AWS service
