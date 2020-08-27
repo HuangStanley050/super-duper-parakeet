@@ -21,6 +21,12 @@ Allows temporary and limited access to AWS services (up to 1 hour)
 
 * DecodeAuthorizationMessage
 
+**How does it work?**
+
+![role](./role.jpg)
+
+![cross](./cross.jpg)
+
 ## Advanced IAM
 
 ## Grant user permission to pass role to AWS service
