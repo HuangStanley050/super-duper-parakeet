@@ -68,6 +68,20 @@ Create your own AD in AWS, manage user locally and support MFA
 
 Establish "trust" between your local AD
 
+![AD1](./AD1.jpg)
+
 **AD Connector**
 
+Proxy to redirects to on premise AD
+
+Users are managed on premise AD
+
+![AD2](./AD2.jpg)
+
 **Simple AD**
+
+AD compatible managed directory on AWS
+
+Cannot be joined with on premise AD
+
+![AD3](./AD3.jpg)
