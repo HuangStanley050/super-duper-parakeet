@@ -59,3 +59,15 @@ later you use **iam:GetRole** to view the role that is passed
 ![trust](./trust.jpg)
 
 ## Directory Service
+
+It is a way to create something similar to MS Active Directory on AWS.
+
+**AWS Managed MS AD**
+
+Create your own AD in AWS, manage user locally and support MFA
+
+Establish "trust" between your local AD
+
+**AD Connector**
+
+**Simple AD**
