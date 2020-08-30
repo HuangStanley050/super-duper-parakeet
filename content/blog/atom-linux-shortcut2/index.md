@@ -47,3 +47,54 @@ select a word
 ctrl + shift + <---
 ctrl + shift + --->
 ```
+
+select a line
+
+```
+ctrl + l
+```
+
+select a line to the left of the cursor
+
+```
+shift + Home
+```
+
+select a line to the right of the cursor
+
+```
+shift + End
+```
+
+Multi cursor select
+
+```
+ctrl + shift + up
+ctrl + shift + down
+```
+
+Go the the next selected word (same)
+
+```
+ctrl + d
+```
+
+**Editing**
+
+Duplicate a line
+
+```
+ctrl + shift + d
+```
+
+delete a line
+
+```
+ctrl + shift + k
+```
+
+Move a line up or down
+
+```
+ctrl + up or ctrl + down
+```
