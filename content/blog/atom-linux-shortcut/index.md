@@ -22,3 +22,35 @@ ctrl + PgUp or ctrl + PgDn
 ```
 ctrl + w
 ```
+
+**Open up command palette in Atom**
+
+```
+ctrl + shift + p
+```
+
+**Go to a specific tab**
+
+```
+alt + 0..9 key
+
+```
+
+**Open a new terminal**
+
+```
+alt + shift + t
+```
+
+**Toggle terminal**
+
+```
+ctrl + ~
+```
+
+**Go back and forth in terminal**
+
+```
+alt + shift + j
+alt + shift + k
+```
