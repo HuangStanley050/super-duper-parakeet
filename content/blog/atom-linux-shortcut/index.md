@@ -1,5 +1,5 @@
 ---
-title: Atom editor shortcut keys for Linux
+title: Atom editor shortcut keys for Linux part 1
 date: '2020-08-30'
 ---
 
@@ -53,4 +53,16 @@ ctrl + ~
 ```
 alt + shift + j
 alt + shift + k
+```
+
+**Moving focus from tab to tree view**
+
+```
+alt + \
+```
+
+**Moving focus from tree view to terminal**
+
+```
+alt + ctrl + f
 ```
