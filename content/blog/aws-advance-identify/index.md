@@ -48,5 +48,14 @@ Some examples are:
 - To CodePipeline to allow it to invoke other services
 
 You need this: **iam:PassRole**
+later you use **iam:GetRole** to view the role that is passed
+
+![pass](./passRole.jpg)
+
+### Can a role be passed to any services?
+
+**Roles can only be passed to what their trust allows**
+
+![trust](./trust.jpg)
 
 ## Directory Service
