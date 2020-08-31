@@ -41,6 +41,12 @@ Else everything else will be DENY
 
 ![allow](./allow.jpg)
 
+### IAM Policy and S3 Bucket policy evaluation
+
+Whatever is evaluated is the union of both IAM and S3 bucket policy
+
+![s3](./s3.jpg)
+
 ## Grant user permission to pass role to AWS service
 
 To configure many AWS services, you must pass an IAM role to the service.
