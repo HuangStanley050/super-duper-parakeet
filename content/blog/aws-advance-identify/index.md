@@ -31,6 +31,16 @@ Allows temporary and limited access to AWS services (up to 1 hour)
 
 ## Advanced IAM
 
+### Authorisation Model explained
+
+If there's an explicit DENY, the end result will be DENY
+
+If ALLOW then all will end with ALLOW
+
+Else everything else will be DENY
+
+![allow](./allow.jpg)
+
 ## Grant user permission to pass role to AWS service
 
 To configure many AWS services, you must pass an IAM role to the service.
