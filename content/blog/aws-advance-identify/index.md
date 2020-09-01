@@ -49,12 +49,20 @@ example snippet:
 
 ```javascript
 {
-  "Sid":"",
-  "Action":"",
-  "Effect":"",
-  "Resource":""
+  "Sid":"AllowAllS3ActionsInUserFolder",
+  "Action":["s3:*"],
+  "Effect":"Allow",
+  "Resource":["arn:aws:s3::my-company/home/${aws:username}/*"]
 }
 ```
+
+### Inline policy vs Managed Policy
+
+**AWS managed policy**
+
+**Customer managed policy**
+
+**Inline policy**
 
 ### Authorisation Model explained
 
