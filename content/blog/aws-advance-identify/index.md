@@ -1,6 +1,6 @@
 ---
 title: AWS advanced identity
-date: '2020-08-27'
+date: '2020-09-03'
 ---
 
 ## STS (Security Token Service)
@@ -30,6 +30,31 @@ Allows temporary and limited access to AWS services (up to 1 hour)
 ![mfa](./mfa.jpg)
 
 ## Advanced IAM
+
+### Dynamic policy
+
+**How to create a bucket with /home/<user> in s3?**
+
+1. create an IAM policy per user like:
+
+/home/George
+/home/Sarah
+/home/Peter
+
+2. Create Dynamic policy
+
+Utilize a special variable: \${aws:username}
+
+example snippet:
+
+```javascript
+{
+  "Sid":"",
+  "Action":"",
+  "Effect":"",
+  "Resource":""
+}
+```
 
 ### Authorisation Model explained
 
