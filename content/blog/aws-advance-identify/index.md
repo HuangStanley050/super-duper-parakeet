@@ -60,9 +60,21 @@ example snippet:
 
 **AWS managed policy**
 
+- Managed by AWS
+
+- Good for admin and power users
+
+- Regular updates
+
 **Customer managed policy**
 
+- Best practice and re usable
+
+- Version controll and roll back
+
 **Inline policy**
+
+- Strict one to one relationship with principal and policy
 
 ### Authorisation Model explained
 
