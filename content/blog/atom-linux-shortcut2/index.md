@@ -98,3 +98,15 @@ Move a line up or down
 ```
 ctrl + up or ctrl + down
 ```
+
+Delete to the end of the word
+
+```
+ctrl + Delete
+```
+
+Delete to the beginning of the word
+
+```
+ctrl + Backspace
+```
