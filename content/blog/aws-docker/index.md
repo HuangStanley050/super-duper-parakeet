@@ -13,6 +13,8 @@ ECS agent then register the instance to the ECS cluster
 
 ![ecs](./ecs.jpg)
 
+**Task Definitions**
+
 ## ECR
 
 ## Fargate
