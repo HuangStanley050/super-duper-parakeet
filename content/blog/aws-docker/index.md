@@ -1,6 +1,6 @@
 ---
 title: AWS Docker
-date: '2020-09-06'
+date: '2020-09-09'
 ---
 
 ## ECS (Elastic Container Service)
@@ -14,6 +14,22 @@ ECS agent then register the instance to the ECS cluster
 ![ecs](./ecs.jpg)
 
 **Task Definitions**
+
+They are in JSON form of metadata and tells ECS how to run a docker container.
+
+Crucial information included are:
+
+- Image name
+
+- Port binding for container and host
+
+* Memory and CUP
+
+* Environment variable
+
+* Network information
+
+![docker](./docker.jpg)
 
 ## ECR
 
