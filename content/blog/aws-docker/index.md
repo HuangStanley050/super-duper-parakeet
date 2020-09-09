@@ -41,6 +41,24 @@ They can be linked to NLB/ELB and ALB is necessary
 
 ## Fargate
 
+Before Fargate:
+
+- We have to create our own EC2 instances when launching an ECS cluster
+
+- If we need to scale, we need to add our own EC2 instances.
+
+- Therefore we need to manage infrastructure.
+
+After Fargate:
+
+- All serverless
+
+- No need to provision EC2 instances
+
+- Just need to create task definitions and AWS run it for us
+
+- To scale, just need to increase the task number, no more EC2s.
+
 ## ECS IAM
 
 ## ECS Task and Restraint
