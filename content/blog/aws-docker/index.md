@@ -31,6 +31,12 @@ Crucial information included are:
 
 ![docker](./docker.jpg)
 
+## ECS Service
+
+This defines how many services should be run and how they should run it across the EC2 fleets.
+
+They can be linked to NLB/ELB and ALB is necessary
+
 ## ECR
 
 ## Fargate
