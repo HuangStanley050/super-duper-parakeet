@@ -37,6 +37,10 @@ This defines how many services should be run and how they should run it across t
 
 They can be linked to NLB/ELB and ALB is necessary
 
+**ECS service with load balancers**
+
+![load](./loadBalance.jpg)
+
 ## ECR
 
 ## Fargate
