@@ -65,6 +65,8 @@ After Fargate:
 
 ## ECS IAM
 
+![iam](./IAM.png)
+
 **EC2 Instance Profile Role**
 
 - Used by the ECS agent
@@ -74,6 +76,14 @@ After Fargate:
 - Send container log to CloudWatch logs
 
 - Pull docker images from ECR
+
+**ECS task role**
+
+- Allow each task to have a specific role
+
+- Use different task role for different ECS service you run.
+
+* Task role are defined in Task Definitions
 
 ## ECS Task and Restraint
 
