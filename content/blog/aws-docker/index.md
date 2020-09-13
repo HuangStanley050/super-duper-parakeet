@@ -95,4 +95,14 @@ As well as when we scale a service, ECS needs to know which service to terminate
 
 This is where you can define **Task placement strategy** and **Task constraints placement**
 
+### Task Placement Process
+
+1. Identify the instance that satisfy the cpu, memory and ports requirements in the task definition.
+
+2. Identify the instance that satisfy the task placement constraints.
+
+3. Identify the instance that meets the task placement strategy.
+
+4. Select instance for task placements
+
 ## ECS Autoscaling
