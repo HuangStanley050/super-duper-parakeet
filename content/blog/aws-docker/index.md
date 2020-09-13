@@ -113,4 +113,8 @@ This is where you can define **Task placement strategy** and **Task constraints 
 
 ![spread](./spread.png)
 
+### Task placement constraints
+
+![strains](./strains.png)
+
 ## ECS Autoscaling
