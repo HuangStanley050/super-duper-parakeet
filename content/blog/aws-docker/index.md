@@ -87,4 +87,12 @@ After Fargate:
 
 ## ECS Task and Restraint
 
+When a type of EC2 instance is launched, ECS must determine where to place it with the constraints of CPU, memory and available ports.
+
+As well as when we scale a service, ECS needs to know which service to terminate.
+
+![cons](./constraints.png)
+
+This is where you can define **Task placement strategy** and **Task constraints placement**
+
 ## ECS Autoscaling
