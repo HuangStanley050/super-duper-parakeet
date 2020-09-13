@@ -105,4 +105,12 @@ This is where you can define **Task placement strategy** and **Task constraints 
 
 4. Select instance for task placements
 
+### Task placement strategies
+
+![bin](./bin.png)
+
+![random](./random.png)
+
+![spread](./spread.png)
+
 ## ECS Autoscaling
