@@ -65,6 +65,16 @@ After Fargate:
 
 ## ECS IAM
 
+**EC2 Instance Profile Role**
+
+- Used by the ECS agent
+
+- Make api call to ECS service
+
+- Send container log to CloudWatch logs
+
+- Pull docker images from ECR
+
 ## ECS Task and Restraint
 
 ## ECS Autoscaling
