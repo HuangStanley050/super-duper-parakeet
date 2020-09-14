@@ -118,3 +118,13 @@ This is where you can define **Task placement strategy** and **Task constraints 
 ![strains](./strains.png)
 
 ## ECS Autoscaling
+
+Lots of things like CPU and Ram are tracked in CloudWatch on a ECS service level.
+
+From there we can do:
+
+- Target tracking:
+
+- Step scaling:
+
+- Schedule scaling:
