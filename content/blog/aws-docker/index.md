@@ -123,8 +123,18 @@ Lots of things like CPU and Ram are tracked in CloudWatch on a ECS service level
 
 From there we can do:
 
-- Target tracking:
+- Target tracking: Target a specific average in CloudWatch metric.
 
-- Step scaling:
+- Step scaling: scaled based on CloudWatch alarm
 
-- Schedule scaling:
+- Schedule scaling: Base on predictable changes
+
+**Fargate auto scaling is much easier to set up**
+
+### ECS Cluster Capacity Provider
+
+It is used in association with a cluster to determine the infrastructure the tasks runs on.
+
+**When you run a task on a service, you define a capacity provider strategy, to prioritize which provider to run**
+
+![cap](./capacity.png)
