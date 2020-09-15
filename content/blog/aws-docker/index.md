@@ -43,6 +43,14 @@ They can be linked to NLB/ELB and ALB is necessary
 
 ## ECR
 
+It is a private Docker images repository
+
+Access control is done through IAM
+
+Version 1 and Version 2 logins:
+
+![login](./login.png)
+
 ## Fargate
 
 Before Fargate:
