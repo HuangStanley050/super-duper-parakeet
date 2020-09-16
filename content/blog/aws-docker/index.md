@@ -158,3 +158,19 @@ Three flavors:
 2. ECS Fargate
 
 3. EKS: Manage kubernetes by AWS
+
+**ECS Classics**
+
+EC2 instance must be created.
+
+Must configure /etc/ecs/ecs.config with the cluster name
+
+EC2 must run an ECS agent
+
+EC2 instance can run multiple containers on the same type:
+
+- You must not specify host ports
+
+- You should use application load balancer with dynamic port
+
+- The EC2 security group must allow traffic from ALB to all ports
