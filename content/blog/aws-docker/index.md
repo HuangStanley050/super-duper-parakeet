@@ -146,3 +146,15 @@ It is used in association with a cluster to determine the infrastructure the tas
 **When you run a task on a service, you define a capacity provider strategy, to prioritize which provider to run**
 
 ![cap](./capacity.png)
+
+## ECS summary
+
+It is mainly used to run dockers on EC2
+
+Three flavors:
+
+1. ECS Classic
+
+2. ECS Fargate
+
+3. EKS: Manage kubernetes by AWS
