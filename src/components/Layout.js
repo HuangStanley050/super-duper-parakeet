@@ -37,13 +37,14 @@ class Layout extends React.Component {
           </h1>
           <h4 style={{ textAlign: 'center' }}>
             <Link
-              style={{
-                boxShadow: `none`,
-                backgroundColor: 'yellow',
-                border: `2px solid red`,
-                textDecoration: `none`,
-                color: `navy`,
-              }}
+              // style={{
+              //   boxShadow: `none`,
+              //   backgroundColor: 'yellow',
+              //   border: `2px solid red`,
+              //   textDecoration: `none`,
+              //   color: `navy`,
+              // }}
+              class="BUTTON_BLW"
               to={`/search`}
             >
               Search
