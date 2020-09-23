@@ -19,16 +19,30 @@ Amazon Simple Email Service:
 
 **AWS Database summary**
 
-RDS:
+### RDS:
 
-DynamoDB:
+Postgres and Aurora
+
+### DynamoDB:
+
+NoSQL DB
 
 Elasticache:
 
-Redshift:
+in memory database, like Memcache and Redis
 
-Neptune:
+### Redshift:
 
-DMS:
+Dataware housing, Data Lake
 
-DocumentDB:
+### Neptune:
+
+Graph database
+
+### DMS:
+
+Database migration service
+
+### DocumentDB:
+
+Managed MongoDB for AWS
