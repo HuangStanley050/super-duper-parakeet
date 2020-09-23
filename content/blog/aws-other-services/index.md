@@ -16,3 +16,19 @@ Amazon Simple Email Service:
 ## ACM (Amazon Certificate Manager)
 
 ## Misc topics for (OTLP, OLAP, NOSQL, Cache)
+
+**AWS Database summary**
+
+RDS:
+
+DynamoDB:
+
+Elasticache:
+
+Redshift:
+
+Neptune:
+
+DMS:
+
+DocumentDB:
