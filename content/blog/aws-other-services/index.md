@@ -15,6 +15,18 @@ Amazon Simple Email Service:
 
 ## ACM (Amazon Certificate Manager)
 
+Mainly used for SSL certificates, you can upload your own or you can use the ones provisioned by ACM
+
+It is used in the following way:
+
+- Load Balancer
+
+- Cloudfront Distribution
+
+- API gateway
+
+![acm](./acm.png)
+
 ## Misc topics for (OTLP, OLAP, NOSQL, Cache)
 
 **AWS Database summary**
