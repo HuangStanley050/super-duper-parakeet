@@ -38,3 +38,23 @@ Demonstrate proficiency in developing and debugging cloud based application usin
 - Proficiency writing code for serverless applications
 
 - Understanding of the use of containers in the development process
+
+## Some ideas for practicing
+
+1. Deploy an existing app to EC2 manually
+
+2. Deploy to Elastic Beanstalk and scale
+
+3. Using some sort of load balancer provided for the app.
+
+4. Create some kind of CI/CD pipeline with
+
+5. Decopule the components with SQS and SNS
+
+6. Try running it on lambda, dynamoDB etc.
+
+7. Write automated script with CLI or SDK like:
+
+- shutdown ec2 instance at night and power up in the morning.
+
+* list down all ec2 instances that's utilizing less than 100% of cpu power
