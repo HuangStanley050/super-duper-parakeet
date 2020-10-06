@@ -11,8 +11,7 @@ const SearchResults = ({ query, results }) => {
           id="search-results-count"
           aria-live="assertive"
         >
-          Found {results.length}
-          posts on "{query}"{' '}
+          Found {results.length} posts on "{query}"{' '}
         </h2>
       )}{' '}
       {!!results.length && (
