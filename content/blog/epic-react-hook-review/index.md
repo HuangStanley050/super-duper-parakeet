@@ -19,6 +19,19 @@ This function returns a value of values and we use the latest ES6 syntax to dest
 const [yourState, setYourState] = React.useState('');
 ```
 
+Another cool thing that we can do is very similar to what we used to do with this.setState() in the class component, we can pass in a function to the setter that changes value for useState() like:
+
+```javascript
+const [counter, setCounter] = React.useState(0);
+setCounter((c) => c + 1);
+```
+
+instead of:
+
+```javascript
+setCounter(c + 1);
+```
+
 ### useEffect
 
 ### useContext
