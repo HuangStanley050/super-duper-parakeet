@@ -34,6 +34,20 @@ setCounter(c + 1);
 
 ### useEffect
 
+It's a function which takes a function and an array as parameters.
+
+The function which it takes allows you to do side-effect and run logic which controls the side effects, which could include updating the state or an ajax call.
+
+The 2nd parameter is an array which will take variables of dependencies that will trigger the react to re render.
+
+**side note**
+
+In the function which you run the side effects if you return another function that's considered as **componentWillUnMount** in the old react way.
+
+```javascript
+useEffect(() => {}, []);
+```
+
 ### useContext
 
 ### useRef
