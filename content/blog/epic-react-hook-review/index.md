@@ -56,6 +56,35 @@ Quote Kent C Dodds:
 
 > To avoid this pain, we can insert some state into a section of our react tree, and then extract that state anywhere within that react tree without having to explicitly pass it everywhere. This feature is called context. In some ways it's like global variables, but it doesn't suffer from the same problems (and maintainability nightmares) of global variables thanks to how the API works to make the relationships explicit.
 
+Here is how one can use it:
+
+```javascript
+const FooContext = React.createContext()
+
+cont FooContextProvider = ({children}) => {
+  //....blah blah
+  //const value = {}
+  //const value = []
+
+  return <FooContext.Provider value={value}>
+  {children}
+  </FooContext.Provider>
+
+}
+
+function FooDisplay() {
+  const foo = React.useContext(FooContext)
+  return <div>Foo is: {foo}</div>
+}
+
+function App = () => {
+  return <FooContextProvider>
+    <FooDisplay/>
+  </FooContextProvider>
+}
+
+```
+
 ### useRef
 
 ### useReducer
