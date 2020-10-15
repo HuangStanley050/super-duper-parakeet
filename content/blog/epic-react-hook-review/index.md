@@ -50,6 +50,12 @@ useEffect(() => {}, []);
 
 ### useContext
 
+The idea of using a context is to avoid prop drilling and sharing state between components. Before this api became widely available, redux was the main solution to this problem.
+
+Quote Kent C Dodds:
+
+> To avoid this pain, we can insert some state into a section of our react tree, and then extract that state anywhere within that react tree without having to explicitly pass it everywhere. This feature is called context. In some ways it's like global variables, but it doesn't suffer from the same problems (and maintainability nightmares) of global variables thanks to how the API works to make the relationships explicit.
+
 ### useRef
 
 ### useReducer
