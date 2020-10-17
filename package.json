@@ -8,9 +8,6 @@
     "url": "https://github.com/NickyMeuleman/gatsby-paginated-blog/issues"
   },
   "dependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "babel-jest": "^26.5.2",
     "gatsby": "^2.21.33",
     "gatsby-image": "^2.0.22",
     "gatsby-plugin-feed": "^2.0.8",
