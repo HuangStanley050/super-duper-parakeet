@@ -87,4 +87,8 @@ function App = () => {
 
 ### useRef
 
+The usual case with useRef hook is that sometimes we need to interact directly with the DOM element like if say we use a third party library like D3.
+
+In order to get access to a particular node in the DOM, we need to get React to give us access.
+
 ### useReducer
