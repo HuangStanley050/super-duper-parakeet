@@ -109,3 +109,9 @@ function MyDiv() {
 > interactions/manipulations in the useEffect callback.
 
 ### useReducer
+
+This hook is basically a more advanced version of useState, you can incorporate logic and is very similar to the concept that's used in Redux's reducer.
+
+> That said, sometimes you want to separate the state logic from the components that make the state changes. In addition, if you have multiple elements of state that typically change together, then having an object that contains those elements of state can be quite helpful.
+
+> This is where `useReducer` comes in really handy. If you're familiar with redux, then you'll feel pretty comfortable here. If not, then you have less to unlearn
