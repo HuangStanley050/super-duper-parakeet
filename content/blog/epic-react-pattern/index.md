@@ -61,7 +61,27 @@ function Counter() {
 
 ## Compound Components
 
-## Flexibile Compound components
+They are components which work together with another couples to form a complete UI like:
+
+```javascript
+<select>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+</select>
+```
+
+Below is a typical "inflexible" way to implement:
+
+```javascript
+<CustomSelect
+  options={[
+    { value: '1', display: 'Option 1' },
+    { value: '2', display: 'Option 2' },
+  ]}
+/>
+```
+
+## Flexible Compound components
 
 ## Prop collections and getters
 
