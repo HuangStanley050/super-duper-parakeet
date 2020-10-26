@@ -81,6 +81,34 @@ Below is a typical "inflexible" way to implement:
 />
 ```
 
+There are two ways to accomplish this:
+
+- React.cloneElement()
+
+- React Context
+
+The way to do it with **React.cloneElement**:
+
+```javascript
+function Foo({ children }) {
+  return React.Children.map(children, (child, index) => {
+    return React.cloneElement(child, {
+      id: `i-am-child-${index}`,
+    });
+  });
+}
+
+function Bar() {
+  return (
+    <Foo>
+      <div>I will have id "i-am-child-0"</div>
+      <div>I will have id "i-am-child-1"</div>
+      <div>I will have id "i-am-child-2"</div>
+    </Foo>
+  );
+}
+```
+
 ## Flexible Compound components
 
 ## Prop collections and getters
