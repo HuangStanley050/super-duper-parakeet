@@ -81,13 +81,9 @@ Below is a typical "inflexible" way to implement:
 />
 ```
 
-There are two ways to accomplish this:
+The way to accomplish this is:
 
-- React.cloneElement()
-
-- React Context
-
-The way to do it with **React.cloneElement**:
+**React.cloneElement**:
 
 ```javascript
 function Foo({ children }) {
@@ -110,6 +106,12 @@ function Bar() {
 ```
 
 ## Flexible Compound components
+
+The previous method using React.cloneElement might not be a flexible option hence, we have another pattern which we can use.
+
+> Right now our component can only clone and pass props to immediate children. So we need some way for our compound components to implicitly accept the states regardless of where they’re rendered within the Parent component.
+
+> The way we do this is through context. React.createContext is the API we want.
 
 ## Prop collections and getters
 
