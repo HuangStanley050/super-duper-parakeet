@@ -194,6 +194,41 @@ Whenever you want to handle the rendering responsibility to the user that's usin
 
 It’s function that will return with props as parameters and the user will need to hook up those props and return the right JSX. You can also use this pattern when your components are being used in many places.
 
+example:
+
+```javascript
+import React from 'react';
+import { Switch } from '../switch';
+
+function useToggle() {
+  const [on, setOn] = React.useState(false);
+  const toggle = () => setOn(!on);
+  const togglerProps = {
+    'aria-pressed': on,
+    onClick: toggle,
+  };
+  // 🐨 Add a property called `togglerProps`. It should be an object that has
+  // `aria-pressed` and `onClick` properties.
+  // 💰 {'aria-pressed': on, onClick: toggle}
+  return { on, togglerProps };
+}
+
+function App() {
+  const { on, togglerProps } = useToggle();
+  return (
+    <div>
+      <Switch on={on} {...togglerProps} />
+      <hr />
+      <button aria-label="custom-button" {...togglerProps}>
+        {on ? 'on' : 'off'}
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
 ## State Reducers
 
 ## Control Props
