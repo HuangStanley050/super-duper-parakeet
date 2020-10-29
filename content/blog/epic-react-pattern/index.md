@@ -188,6 +188,12 @@ function App() {
 
 ## Prop collections and getters
 
+So when do you use this?
+
+Whenever you want to handle the rendering responsibility to the user that's using your component.
+
+It’s function that will return with props as parameters and the user will need to hook up those props and return the right JSX. You can also use this pattern when your components are being used in many places.
+
 ## State Reducers
 
 ## Control Props
