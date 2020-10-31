@@ -42,8 +42,8 @@ function CounterProvider({ step = 1, initialCount = 0, ...props }) {
 And in the component that uses the context, we create a helper function that pass in the dispatch as an argument like:
 
 ```javascript
-const increment = (dispatch) => dispatch({ type: 'increment' });
-const decrement = (dispatch) => dispatch({ type: 'decrement' });
+const increment = dispatch => dispatch({ type: 'increment' });
+const decrement = dispatch => dispatch({ type: 'decrement' });
 
 import { useCounter, increment, decrement } from 'context/counter';
 
@@ -230,5 +230,9 @@ export default App;
 ```
 
 ## State Reducers
+
+Some background, most of the reusable components would need to handle different context and with that it would need to be able to handle different cases. What we could do is that add that piece of logic in our components to handle the cases. But in reality that there could be a never ending list of logical customization that people could want out of our reusable components.
+
+This **state reducer** pattern would help us to cope with the situation mentioned above
 
 ## Control Props
