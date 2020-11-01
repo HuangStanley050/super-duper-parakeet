@@ -42,8 +42,8 @@ function CounterProvider({ step = 1, initialCount = 0, ...props }) {
 And in the component that uses the context, we create a helper function that pass in the dispatch as an argument like:
 
 ```javascript
-const increment = dispatch => dispatch({ type: 'increment' });
-const decrement = dispatch => dispatch({ type: 'decrement' });
+const increment = (dispatch) => dispatch({ type: 'increment' });
+const decrement = (dispatch) => dispatch({ type: 'decrement' });
 
 import { useCounter, increment, decrement } from 'context/counter';
 
@@ -241,7 +241,7 @@ Example:
 import React from 'react';
 import { Switch } from '../switch';
 
-const callAll = (...fns) => (...args) => fns.forEach(fn => fn?.(...args));
+const callAll = (...fns) => (...args) => fns.forEach((fn) => fn?.(...args));
 
 function toggleReducer(state, { type, initialState }) {
   switch (type) {
@@ -324,7 +324,7 @@ function App() {
         {...getTogglerProps({
           disabled: clickedTooMuch,
           on: on,
-          onClick: () => setTimesClicked(count => count + 1),
+          onClick: () => setTimesClicked((count) => count + 1),
         })}
       />
       {clickedTooMuch ? (
@@ -346,3 +346,7 @@ export default App;
 ```
 
 ## Control Props
+
+The concept comes when people want to manage the internal state of our components from the outside.
+
+> The state reducer allows them to manage what state changes are made when a state change happens, but sometimes people may want to make state changes themselves. We can allow them to do this with a feature called "Control Props."
