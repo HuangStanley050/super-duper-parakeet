@@ -23,6 +23,53 @@ Testing the components in react is a trade off between writing a test that's rea
 
 2. The developers using the code.
 
+**Steps**
+
+* Create a DOM node
+
+* Add it to the body
+
+* Render the component to that DOM node.
+
+* Clean up the DOM for the next test
+
+Example Code:
+
+```javascript
+import * as React from 'react'
+import ReactDOM from 'react-dom'
+import Counter from '../../components/counter'
+
+test('counter increments and decrements when the buttons are clicked', () => {
+  // 🐨 create a div to render your component to (💰 document.createElement)
+  const myDivComponent = document.createElement('div')
+  // 🐨 append the div to document.body (💰 document.body.append)
+  document.body.append(myDivComponent)
+  // 🐨 use ReactDOM.render to render the <Counter /> to the div
+  ReactDOM.render(<Counter />, myDivComponent)
+  // 🐨 get a reference to the increment and decrement buttons:
+  //   💰 div.querySelectorAll('button')
+  const [decrement, increment] = myDivComponent.querySelectorAll('button')
+  // 🐨 get a reference to the message div:
+  //   💰 div.firstChild.querySelector('div')
+  const message = myDivComponent.firstChild.querySelector('div')
+  // 🐨 expect the message.textContent toBe 'Current count: 0'
+  expect(message.textContent).toBe(`Current count: 0`)
+  // 🐨 click the increment button (💰 increment.click())
+  increment.click()
+  // 🐨 assert the message.textContent
+  expect(message.textContent).toBe(`Current count: 1`)
+  // 🐨 click the decrement button (💰 decrement.click())
+  decrement.click()
+  // 🐨 assert the message.textContent
+  expect(message.textContent).toBe(`Current count: 0`)
+  myDivComponent.remove()
+  // 🐨 cleanup by removing the div from the page (💰 div.remove())
+  // 🦉 If you don't cleanup, then it could impact other tests and/or cause a memory leak
+})
+
+```
+
 ## Simple Test with React Testing Library
 
 ## Avoid Implementation details
