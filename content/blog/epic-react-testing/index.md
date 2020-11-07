@@ -15,6 +15,14 @@ The two ways to go about testing the app
 
 ## Simple Test with ReactDOM
 
+Testing the components in react is a trade off between writing a test that's reasonable vs how the software is actually used.
+
+**principle**
+
+1. Interaction from user like clicking the buttons.
+
+2. The developers using the code.
+
 ## Simple Test with React Testing Library
 
 ## Avoid Implementation details
