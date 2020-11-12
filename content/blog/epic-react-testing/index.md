@@ -93,6 +93,32 @@ test('it works', () => {
 
 ## Avoid Implementation details
 
+What this means is that doesn't matter how the code is implemented, the test should always remain consistent and the end result should be what's expected.
+
+Example of code using different implementation details:
+
+```javascript
+multiply(4, 5); // 20
+```
+
+> The `multiply` function can be implemented in basically infinite ways. Here are two examples:
+
+```javascript
+const multiply = (a, b) => a * b;
+```
+
+vs
+
+```javascript
+function multiply(a, b) {
+  let total = 0;
+  for (let i = 0; i < b; i++) {
+    total += a;
+  }
+  return total;
+}
+```
+
 ## Form testing
 
 ## Mock HTTP response
