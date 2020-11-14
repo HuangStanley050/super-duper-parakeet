@@ -118,6 +118,36 @@ function Counter() {
 }
 ```
 
+Here is one way to get the button:
+
+```javascript
+const { container } = render(<Counter />);
+container.firstChild; // <-- that's the button
+```
+
+But it will fail if we wrap the button inside a <span/> like:
+
+```javascript
+function Counter() {
+  const [count, setCount] = React.useState(0);
+  const increment = () => setCount(c => c + 1);
+  return (
+    <span>
+      <button onClick={increment}>{count}</button>
+    </span>
+  );
+}
+```
+
+A better way be to use the "screen" along with "render" provided by React Testing Libary like:
+
+```javascript
+render(<Counter />);
+screen.getByText('0'); // <-- that's the button
+// or (even better) you can do this:
+screen.getByRole('button', { name: '0' }); // <-- that's the button
+```
+
 ## Form testing
 
 ## Mock HTTP response
