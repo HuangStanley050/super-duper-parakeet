@@ -113,7 +113,7 @@ This what we want to test,
 ```javascript
 function Counter() {
   const [count, setCount] = React.useState(0);
-  const increment = () => setCount(c => c + 1);
+  const increment = () => setCount((c) => c + 1);
   return <button onClick={increment}>{count}</button>;
 }
 ```
@@ -130,7 +130,7 @@ But it will fail if we wrap the button inside a <span/> like:
 ```javascript
 function Counter() {
   const [count, setCount] = React.useState(0);
-  const increment = () => setCount(c => c + 1);
+  const increment = () => setCount((c) => c + 1);
   return (
     <span>
       <button onClick={increment}>{count}</button>
@@ -149,6 +149,18 @@ screen.getByRole('button', { name: '0' }); // <-- that's the button
 ```
 
 ## Form testing
+
+It is very import to get this right as form is a part where users spend most of the time interacting with the application. Something like "login" or "checkout" are crucial to the success of our web applications, therefore we need to have good testing to give us confidence.
+
+Things we need to make sure that we do well:
+
+1. User can find inputs in the form
+
+2. They can fill in the information
+
+3. The fields get validated
+
+4. When they submit, the form data is correct
 
 ## Mock HTTP response
 
