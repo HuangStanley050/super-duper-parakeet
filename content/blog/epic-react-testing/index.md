@@ -162,6 +162,35 @@ Things we need to make sure that we do well:
 
 4. When they submit, the form data is correct
 
+example:
+
+```javascript
+import * as React from 'react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import Login from '../../components/login';
+
+test('submitting the form calls onSubmit with username and password', () => {
+  let submittedData;
+  const handleSubmit = (data) => {
+    submittedData = data;
+  };
+  render(<Login onSubmit={handleSubmit} />);
+  const username = 'Adam';
+  const password = 'Sandler';
+  const userName = screen.getByLabelText('Username');
+  const passWord = screen.getByLabelText('Password');
+  userEvent.type(userName, username);
+  userEvent.type(passWord, password);
+  userEvent.click(screen.getByRole('button', { name: 'Submit' }));
+
+  expect(submittedData).toEqual({
+    username,
+    password,
+  });
+});
+```
+
 ## Mock HTTP response
 
 ## Mock browser api and modules
