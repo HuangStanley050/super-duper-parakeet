@@ -193,6 +193,12 @@ test('submitting the form calls onSubmit with username and password', () => {
 
 ## Mock HTTP response
 
+How our application interact with the backend determines how well users will get out of using our applications. And again we have to make sure we get maximum confidence with our tests for http request that interact with our react components.
+
+The approach we are using is something called the interceptor,
+
+> To handle these fetch requests, we're going to start up a "server" which is not actually a server, but simply a request interceptor. This makes it really easy to get things setup (because we don't have to worry about finding an available port for the server to listen to and making sure we're making requests to the right port) and it also allows us to mock requests made to other domains.
+
 ## Mock browser api and modules
 
 ## Context and custom render method
