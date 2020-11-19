@@ -199,6 +199,64 @@ The approach we are using is something called the interceptor,
 
 > To handle these fetch requests, we're going to start up a "server" which is not actually a server, but simply a request interceptor. This makes it really easy to get things setup (because we don't have to worry about finding an available port for the server to listen to and making sure we're making requests to the right port) and it also allows us to mock requests made to other domains.
 
+Using this package called "MSW" for the mock server/interceptor
+
+[MSW](https://mswjs.io/)
+
+example:
+
+```javascript
+// __tests__/fetch.test.js
+import * as React from 'react';
+import { rest } from 'msw';
+import { setupServer } from 'msw/node';
+import {
+  render,
+  waitForElementToBeRemoved,
+  screen,
+} from '@testing-library/react';
+import { userEvent } from '@testing-library/user-event';
+import Fetch from '../fetch';
+
+const server = setupServer(
+  rest.get('/greeting', (req, res, ctx) => {
+    return res(ctx.json({ greeting: 'hello there' }));
+  })
+);
+
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
+
+test('loads and displays greeting', async () => {
+  render(<Fetch url="/greeting" />);
+
+  userEvent.click(screen.getByText('Load Greeting'));
+
+  await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+
+  expect(screen.getByRole('heading')).toHaveTextContent('hello there');
+  expect(screen.getByRole('button')).toHaveAttribute('disabled');
+});
+
+test('handles server error', async () => {
+  server.use(
+    rest.get('/greeting', (req, res, ctx) => {
+      return res(ctx.status(500));
+    })
+  );
+
+  render(<Fetch url="/greeting" />);
+
+  userEvent.click(screen.getByText('Load Greeting'));
+
+  await waitForElementToBeRemoved(() => screen.getByText('Loading...'));
+
+  expect(screen.getByRole('alert')).toHaveTextContent('Oops, failed to fetch!');
+  expect(screen.getByRole('button')).not.toHaveAttribute('disabled');
+});
+```
+
 ## Mock browser api and modules
 
 ## Context and custom render method
