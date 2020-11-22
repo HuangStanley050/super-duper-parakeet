@@ -259,6 +259,38 @@ test('handles server error', async () => {
 
 ## Mock browser api and modules
 
+The tests that are running are actually not being done in the real browser, instead the tests are run in something called the jsdom. [jsdom](https://github.com/jsdom/jsdom), It simulate the browser behaviour really well with the exception of window resizing and media query.
+
+When it comes to testing, sometimes you don't want to test utility functions you write, where instead you could mock them like:
+
+```javascript
+// math.js
+export const add = (a, b) => a + b;
+export const subtract = (a, b) => a - b;
+
+// __tests__/some-test.js
+import { add, subtract } from '../math';
+
+jest.mock('../math');
+
+// now all the function exports from the "math.js" module are jest mock functions
+// so we can call .mockImplementation(...) on them
+// and make assertions like .toHaveBeenCalledTimes(...)
+```
+
+Additionally, if you'd like to mock only _parts_ of a module, you can provide
+your own "mock module getter" function:
+
+```javascript
+jest.mock('../math', () => {
+  const actualMath = jest.requireActual('../math');
+  return {
+    ...actualMath,
+    subtract: jest.fn(),
+  };
+});
+```
+
 ## Context and custom render method
 
 ## Testing custom hooks
