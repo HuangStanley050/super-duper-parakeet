@@ -291,6 +291,53 @@ jest.mock('../math', () => {
 });
 ```
 
+example of a test mocking browser api:
+
+```javascript
+window.navigator.geolocation = {
+  getCurrentPosition: jest.fn(),
+};
+
+function deferred() {
+  let resolve, reject;
+  const promise = new Promise((res, rej) => {
+    resolve = res;
+    reject = rej;
+  });
+  return { promise, resolve, reject };
+}
+
+test('displays the users current location', async () => {
+  const fakePosition = {
+    coords: { latitude: 1, longitude: 2 },
+  };
+
+  const { promise, resolve, reject } = deferred();
+
+  window.navigator.geolocation.getCurrentPosition.mockImplementation(
+    (callback) => {
+      promise.then(() => callback(fakePosition));
+    }
+  );
+  render(<Location />);
+
+  expect(screen.getByLabelText('loading...')).toBeInTheDocument();
+
+  await act(() => {
+    resolve();
+    return promise;
+  });
+
+  expect(screen.queryByLabelText('loading...')).not.toBeInTheDocument();
+  expect(screen.getByText(/latitude/i)).toHaveTextContent(
+    `Latitude: ${fakePosition.coords.latitude}`
+  );
+  expect(screen.getByText(/longitude/i)).toHaveTextContent(
+    `Longitude: ${fakePosition.coords.longitude}`
+  );
+});
+```
+
 ## Context and custom render method
 
 ## Testing custom hooks
