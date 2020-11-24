@@ -340,4 +340,34 @@ test('displays the users current location', async () => {
 
 ## Context and custom render method
 
+What do we do if we need to test a component that is wrapped with context?
+
+example:
+
+```javascript
+render(
+  <ContextProvider>
+    <ComponentToTest />
+  </ContextProvider>
+);
+```
+
+Some problem or annoyance come if you need to re render the component like:
+
+```javascript
+const { rerender } = render(
+  <ContextProvider>
+    <ComponentToTest />
+  </ContextProvider>
+);
+
+rerender(
+  <ContextProvider>
+    <ComponentToTest newProp={true} />
+  </ContextProvider>
+);
+```
+
+So what do we need to do?
+
 ## Testing custom hooks
