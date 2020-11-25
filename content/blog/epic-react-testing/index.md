@@ -370,4 +370,17 @@ rerender(
 
 So what do we need to do?
 
+we could provide a `wrapper` option and
+that will ensure that "rerender" are wrapped as well:
+
+```javascript
+function Wrapper({ children }) {
+  return <ContextProvider>{children}</ContextProvider>;
+}
+
+const { rerender } = render(<ComponentToTest />, { wrapper: Wrapper });
+
+rerender(<ComponentToTest newProp={true} />);
+```
+
 ## Testing custom hooks
