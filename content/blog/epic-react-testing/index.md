@@ -383,4 +383,28 @@ const { rerender } = render(<ComponentToTest />, { wrapper: Wrapper });
 rerender(<ComponentToTest newProp={true} />);
 ```
 
+The so called "wrapper" could include all the context providers like, Router, Theme or Authentication.
+
+If you want, you can create your own render method:
+
+```javascript
+import { render as rtlRender } from '@testing-library/react';
+// "rtl" is short for "react testing library" not "right-to-left" 😅
+
+function render(ui, options) {
+  return rtlRender(ui, { wrapper: Wrapper, ...options });
+}
+
+// then in your tests, you don't need to worry about context at all:
+const { rerender } = render(<ComponentToTest />);
+
+rerender(<ComponentToTest newProp={true} />);
+```
+
+> From there, you can put that custom render function in your own module and use your custom render method instead of the built-in one from React Testing Library.
+
+reference from the official site:
+
+[Testing](https://testing-library.com/docs/react-testing-library/setup)
+
 ## Testing custom hooks
