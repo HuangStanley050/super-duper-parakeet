@@ -1,6 +1,6 @@
 ---
 title: React testing
-date: '2020-11-05'
+date: '2020-11-29'
 ---
 
 ![testing](./testing.jpg)
