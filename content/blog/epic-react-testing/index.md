@@ -408,3 +408,39 @@ reference from the official site:
 [Testing](https://testing-library.com/docs/react-testing-library/setup)
 
 ## Testing custom hooks
+
+Our custom hooks are created to use in our components and the easiest way to go about it is to just test the component that uses the custom hooks.
+
+Example:
+
+```javascript
+import * as React from 'react'
+import {render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import useCounter from '../../components/use-counter'
+
+function UseCounterHookExample() {
+  const {count, increment, decrement} = useCounter()
+  return (
+    <div>
+      <div>Current count: {count}</div>
+      <button onClick={decrement}>Decrement</button>
+      <button onClick={increment}>Increment</button>
+    </div>
+  )
+}
+
+test('exposes the count and increment/decrement functions', () => {
+  render(<UseCounterHookExample />)
+  const increment = screen.getByRole('button', {name: /increment/i})
+  const decrement = screen.getByRole('button', {name: /decrement/i})
+  const message = screen.getByText(/current count/i)
+
+  expect(message).toHaveTextContent('Current count: 0')
+  userEvent.click(increment)
+  expect(message).toHaveTextContent('Current count: 1')
+  userEvent.click(decrement)
+  expect(message).toHaveTextContent('Current count: 0')
+})
+
+```
