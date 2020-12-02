@@ -26,6 +26,36 @@ import('/some-module.js').then(
 );
 ```
 
+In React, such feature is made possible by **<React.Suspense/>**
+
+An example:
+
+```javascript
+// smiley-face.js
+import * as React from 'react';
+
+function SmileyFace() {
+  return <div>😃</div>;
+}
+
+export default SmileyFace;
+
+// app.js
+import * as React from 'react';
+
+const SmileyFace = React.lazy(() => import('./smiley-face'));
+
+function App() {
+  return (
+    <div>
+      <React.Suspense fallback={<div>loading...</div>}>
+        <SmileyFace />
+      </React.Suspense>
+    </div>
+  );
+}
+```
+
 ### useMemo for Expensive Calculations
 
 ### React.memo for Reducing re-renders
