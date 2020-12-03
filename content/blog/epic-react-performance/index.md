@@ -58,6 +58,8 @@ function App() {
 
 ### useMemo for Expensive Calculations
 
+Since the introduction of react hooks, things have become quite easy especially with state management and logic all being all placed inside a functional component, which allows for awesome composability. This is equivalent to the render method in the react class component.
+
 ### React.memo for Reducing re-renders
 
 ### Window Large Lists with react-virtual
