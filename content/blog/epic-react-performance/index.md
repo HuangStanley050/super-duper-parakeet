@@ -60,6 +60,25 @@ function App() {
 
 Since the introduction of react hooks, things have become quite easy especially with state management and logic all being all placed inside a functional component, which allows for awesome composability. This is equivalent to the render method in the react class component.
 
+However with that, it comes with a cost.
+
+In some sort of calculations function like below **render** will be performed every single time, regardless of whether the inputs for the calculations change.
+
+Example:
+
+```jsx
+function Distance({x, y}) {
+  const distance = calculateDistance(x, y)
+  return (
+    <div>
+      The distance between {x} and {y} is {distance}.
+    </div>
+  )
+}
+```
+
+> If that component's parent re-renders, or if we add some unrelated state to the component and trigger a re-render, we'll be calling `calculateDistance` every render which could lead to a performance bottleneck.
+
 ### React.memo for Reducing re-renders
 
 ### Window Large Lists with react-virtual
