@@ -66,18 +66,33 @@ In some sort of calculations function like below **render** will be performed ev
 
 Example:
 
-```jsx
-function Distance({x, y}) {
-  const distance = calculateDistance(x, y)
+```javascript
+function Distance({ x, y }) {
+  const distance = calculateDistance(x, y);
   return (
     <div>
       The distance between {x} and {y} is {distance}.
     </div>
-  )
+  );
 }
 ```
 
 > If that component's parent re-renders, or if we add some unrelated state to the component and trigger a re-render, we'll be calling `calculateDistance` every render which could lead to a performance bottleneck.
+
+**useMemo** can help with this particular use case:
+
+```javascript
+function Distance({ x, y }) {
+  const distance = React.useMemo(() => calculateDistance(x, y), [x, y]);
+  return (
+    <div>
+      The distance between {x} and {y} is {distance}.
+    </div>
+  );
+}
+```
+
+> This allows us to put that calculation behind a function which is only called when the result actually needs to be re-evaluated (when the dependencies change). In the example above the array `[x, y]` are called "dependencies" and React knows that so long as those do not change, the result of our function will be the same as the last time the function was called.
 
 ### React.memo for Reducing re-renders
 
