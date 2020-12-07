@@ -96,6 +96,18 @@ function Distance({ x, y }) {
 
 ### React.memo for Reducing re-renders
 
+Summary of a react app life cycle:
+
+```
+→  render → reconciliation → commit
+         ↖                   ↙
+              state change
+```
+
+1. The "render" phase: create React elements React.createElement
+2. The "reconciliation" phase: compare previous elements with the new ones
+3. The "commit" phase: update the DOM (if needed).
+
 ### Window Large Lists with react-virtual
 
 ### Optimize Context Value
