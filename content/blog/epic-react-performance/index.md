@@ -115,8 +115,41 @@ Summary of a react app life cycle:
 3. It is consuming context values which have changed
 4. Its parent re-renders
 
-> React is really fast, however, _sometimes_ it can be useful to give React little tips about certain parts of the React tree when there's a state update. You can opt-out of state updates for a part of the React tree by using one of React's built-in rendering bail-out utilities: `React.PureComponent`, `React.memo`, or
-> `shouldComponentUpdate`.
+> React is really fast, however, _sometimes_ it can be useful to give React little tips about certain parts of the React tree when there's a state update. You can opt-out of state updates for a part of the React tree by using one of React's built-in rendering bail-out utilities: `React.PureComponent`, `React.memo`, or `shouldComponentUpdate`.
+
+Here is an example:
+
+```javascript
+function CountButton({ count, onClick }) {
+  return <button onClick={onClick}>{count}</button>;
+}
+
+function NameInput({ name, onNameChange }) {
+  return (
+    <label>
+      Name:{' '}
+      <input value={name} onChange={(e) => onNameChange(e.target.value)} />
+    </label>
+  );
+}
+
+function Example() {
+  const [name, setName] = React.useState('');
+  const [count, setCount] = React.useState(0);
+  const increment = () => setCount((c) => c + 1);
+  return (
+    <div>
+      <div>
+        <CountButton count={count} onClick={increment} />
+      </div>
+      <div>
+        <NameInput name={name} onNameChange={setName} />
+      </div>
+      {name ? <div>{`${name}'s favorite number is ${count}`}</div> : null}
+    </div>
+  );
+}
+```
 
 ### Window Large Lists with react-virtual
 
