@@ -151,6 +151,10 @@ function Example() {
 }
 ```
 
+> Based on how this is implemented, when you click on the counter button, the `<CountButton />` re-renders (so we can update the `count` value). But the `<NameInput />` is also re-rendered. If you have `Record why each component rendered while profiling.` enabled in React DevTools, then you'll see that under "Why did this render?" it says "The parent component rendered."
+
+> React does this because it has no way of knowing whether the NameInput will need to return different React elements based on the state change of its parent. In our case there were no changes necessary, so React didn't bother updating the DOM. This is what's called an "unnecessary rerender" and if that render/reconciliation process is expensive, then it can be worthwhile to prevent it.
+
 ### Window Large Lists with react-virtual
 
 ### Optimize Context Value
