@@ -17,10 +17,10 @@ There already is a method available for us from javascript, which is called the 
 
 ```javascript
 import('/some-module.js').then(
-  (module) => {
+  module => {
     // do stuff with the module's exports
   },
-  (error) => {
+  error => {
     // there was some error loading the module...
   }
 );
@@ -127,8 +127,7 @@ function CountButton({ count, onClick }) {
 function NameInput({ name, onNameChange }) {
   return (
     <label>
-      Name:{' '}
-      <input value={name} onChange={(e) => onNameChange(e.target.value)} />
+      Name: <input value={name} onChange={e => onNameChange(e.target.value)} />
     </label>
   );
 }
@@ -136,7 +135,7 @@ function NameInput({ name, onNameChange }) {
 function Example() {
   const [name, setName] = React.useState('');
   const [count, setCount] = React.useState(0);
-  const increment = () => setCount((c) => c + 1);
+  const increment = () => setCount(c => c + 1);
   return (
     <div>
       <div>
@@ -154,6 +153,34 @@ function Example() {
 > Based on how this is implemented, when you click on the counter button, the `<CountButton />` re-renders (so we can update the `count` value). But the `<NameInput />` is also re-rendered. If you have `Record why each component rendered while profiling.` enabled in React DevTools, then you'll see that under "Why did this render?" it says "The parent component rendered."
 
 > React does this because it has no way of knowing whether the NameInput will need to return different React elements based on the state change of its parent. In our case there were no changes necessary, so React didn't bother updating the DOM. This is what's called an "unnecessary rerender" and if that render/reconciliation process is expensive, then it can be worthwhile to prevent it.
+
+What we can provide React to stop the re render is one of two things from the API:
+
+1. React.PureComponent: For class component
+
+2. React.memo: For functional component
+
+What they do is not they will prevent re render if its parent re-rendered thus improving performance if it's intended.
+
+**Improving our example above**
+
+```javascript
+function CountButton({ count, onClick }) {
+  return <button onClick={onClick}>{count}</button>;
+}
+CountButton = React.memo(CountButton);
+
+function NameInput({ name, onNameChange }) {
+  return (
+    <label>
+      Name: <input value={name} onChange={e => onNameChange(e.target.value)} />
+    </label>
+  );
+}
+NameInput = React.memo(NameInput);
+
+// etc... no other changes necessary
+```
 
 ### Window Large Lists with react-virtual
 
