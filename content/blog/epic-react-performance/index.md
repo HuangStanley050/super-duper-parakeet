@@ -17,10 +17,10 @@ There already is a method available for us from javascript, which is called the 
 
 ```javascript
 import('/some-module.js').then(
-  module => {
+  (module) => {
     // do stuff with the module's exports
   },
-  error => {
+  (error) => {
     // there was some error loading the module...
   }
 );
@@ -127,7 +127,8 @@ function CountButton({ count, onClick }) {
 function NameInput({ name, onNameChange }) {
   return (
     <label>
-      Name: <input value={name} onChange={e => onNameChange(e.target.value)} />
+      Name:{' '}
+      <input value={name} onChange={(e) => onNameChange(e.target.value)} />
     </label>
   );
 }
@@ -135,7 +136,7 @@ function NameInput({ name, onNameChange }) {
 function Example() {
   const [name, setName] = React.useState('');
   const [count, setCount] = React.useState(0);
-  const increment = () => setCount(c => c + 1);
+  const increment = () => setCount((c) => c + 1);
   return (
     <div>
       <div>
@@ -173,7 +174,8 @@ CountButton = React.memo(CountButton);
 function NameInput({ name, onNameChange }) {
   return (
     <label>
-      Name: <input value={name} onChange={e => onNameChange(e.target.value)} />
+      Name:{' '}
+      <input value={name} onChange={(e) => onNameChange(e.target.value)} />
     </label>
   );
 }
@@ -181,6 +183,10 @@ NameInput = React.memo(NameInput);
 
 // etc... no other changes necessary
 ```
+
+> If you try that out, then you'll notice the `<NameInput />` no longer re-renders when you click on the counter button, saving React the work of having to call the `NameInput` function and compare the previous react elements with the new ones.
+
+> Again, I want to mention that people can make the mistake of wrapping _everything_ in `React.memo` which can actually slow down your app in some cases and in all cases it makes your code more complex. So it's much better to use it more intentionally and further, there are other things you can do to reduce the amount of unnecessary re-renders throughout your application.
 
 ### Window Large Lists with react-virtual
 
