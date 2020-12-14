@@ -190,6 +190,18 @@ NameInput = React.memo(NameInput);
 
 ### Window Large Lists with react-virtual
 
+We learn that React is really fast at updating the DOM but imagine what happens when you need to update tens of thousands elements, it could be a problem.
+
+Some examples of when we run into problems of huge updates:
+
+1. Data visualisation
+
+2. Grids
+
+3. Tables
+
+4. List of LOTS of data
+
 ### Optimize Context Value
 
 ### Fix Perf Death by a Thousand Cuts
