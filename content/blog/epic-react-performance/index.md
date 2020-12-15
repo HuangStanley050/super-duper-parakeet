@@ -202,6 +202,17 @@ Some examples of when we run into problems of huge updates:
 
 4. List of LOTS of data
 
+> But here's the trick. Often you don't need to actually display tens of thousands
+> of list items, table cells, or data points to users. So if that content isn't
+> displayed, then you can kinda cheat by doing some "lazy" just-in-time rendering.
+
+> So let's say you had a grid of data that rendered 100 columns and had 5000 rows.
+> Do you really need to render all 500000 cells for the user all at once? They
+> certainly won't see or be able to interact with all of that information at once.
+> You'll only display a "window" of 10 columns by 20 rows (so 200 cells for
+> example), and the rest you can delay rendering until the user starts scrolling
+> around the grid.
+
 ### Optimize Context Value
 
 ### Fix Perf Death by a Thousand Cuts
