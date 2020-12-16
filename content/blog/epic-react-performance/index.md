@@ -213,6 +213,60 @@ Some examples of when we run into problems of huge updates:
 > example), and the rest you can delay rendering until the user starts scrolling
 > around the grid.
 
+Problem like above can be solved with a concept "windowing", many libraries exist in the react ecosystem.
+
+We are looking at using `react-virtual`. Here's an example of how you would adapt a list to use `react-virtual`'s `useVirtual` hook:
+
+```javascript
+// before
+function MyListOfData({ items }) {
+  return (
+    <ul style={{ height: 300 }}>
+      {items.map((item) => (
+        <li key={item.id}>{item.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+```javascript
+// after
+function MyListOfData({ items }) {
+  const listRef = React.useRef();
+  const rowVirtualizer = useVirtual({
+    size: items.length,
+    parentRef: listRef,
+    estimateSize: React.useCallback(() => 20, []),
+    overscan: 10,
+  });
+
+  return (
+    <ul ref={listRef} style={{ display: 'relative', height: 300 }}>
+      <li style={{ height: rowVirtualizer.totalSize }} />
+      {rowVirtualizer.virtualItems.map(({ index, size, start }) => {
+        const item = items[index];
+        return (
+          <li
+            key={item.id}
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: size,
+              transform: `translateY(${start}px)`,
+            }}
+          >
+            {item.name}
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+```
+
 ### Optimize Context Value
 
 ### Fix Perf Death by a Thousand Cuts
