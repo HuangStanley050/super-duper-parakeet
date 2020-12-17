@@ -267,6 +267,12 @@ function MyListOfData({ items }) {
 }
 ```
 
+> In summary, rather than iterating over all the items in your list, you simply
+> tell `useVirtual` how many rows are in your list, give it a callback that it can
+> use to determine what size they each should be, and then it will give you back
+> `virtualItems` and a `totalSize` which you can then use to only render the
+> items the user should be able to see within the window.
+
 ### Optimize Context Value
 
 ### Fix Perf Death by a Thousand Cuts
