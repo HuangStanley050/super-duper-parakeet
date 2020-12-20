@@ -275,6 +275,20 @@ function MyListOfData({ items }) {
 
 ### Optimize Context Value
 
+Context will re render if the provided values changed and that in term will triggers a re-render of all the consuming components **(which will re-render whether or not they're memoized)**.
+
+So take this for example:
+
+```jsx
+const CountContext = React.createContext();
+
+function CountProvider(props) {
+  const [count, setCount] = React.useState(0);
+  const value = [count, setCount];
+  return <CountContext.Provider value={value} {...props} />;
+}
+```
+
 ### Fix Perf Death by a Thousand Cuts
 
 ### Production Performance Monitoring
