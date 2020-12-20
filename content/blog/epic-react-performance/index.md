@@ -289,6 +289,13 @@ function CountProvider(props) {
 }
 ```
 
+> Every time the `<CountProvider />` is re-rendered, the `value` is brand new, so
+> even though the `count` value itself may stay the same, all component consumers
+> will be re-rendered.
+
+> The quick and easy solution to this problem is to memoize the value that you
+> provide to the context provider:
+
 ### Fix Perf Death by a Thousand Cuts
 
 ### Production Performance Monitoring
