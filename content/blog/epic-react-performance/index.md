@@ -296,6 +296,16 @@ function CountProvider(props) {
 > The quick and easy solution to this problem is to memoize the value that you
 > provide to the context provider:
 
+```javascript
+const CountContext = React.createContext();
+
+function CountProvider(props) {
+  const [count, setCount] = React.useState(0);
+  const value = React.useMemo(() => [count, setCount], [count]);
+  return <CountContext.Provider value={value} {...props} />;
+}
+```
+
 ### Fix Perf Death by a Thousand Cuts
 
 ### Production Performance Monitoring
