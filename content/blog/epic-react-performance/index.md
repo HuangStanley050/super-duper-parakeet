@@ -308,4 +308,6 @@ function CountProvider(props) {
 
 ### Fix Perf Death by a Thousand Cuts
 
+In a real world scenario typically with an app you would need some state management. It's very common that we will run into issues by so many components get updated when state changes and it causes performance bottleneck.
+
 ### Production Performance Monitoring
