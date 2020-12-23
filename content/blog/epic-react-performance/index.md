@@ -310,4 +310,9 @@ function CountProvider(props) {
 
 In a real world scenario typically with an app you would need some state management. It's very common that we will run into issues by so many components get updated when state changes and it causes performance bottleneck.
 
+> Sometimes performance problems are because a single component is doing something
+> it shouldn't (running too much code on an interaction). Those are typically
+> easier to deal with because you can quickly identify the problem and determine a
+> good solution.
+
 ### Production Performance Monitoring
