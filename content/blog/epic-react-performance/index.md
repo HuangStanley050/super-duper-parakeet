@@ -315,4 +315,15 @@ In a real world scenario typically with an app you would need some state managem
 > easier to deal with because you can quickly identify the problem and determine a
 > good solution.
 
+> Perf death by a thousand cuts on the other hand doesn't give you an obvious
+> place to fix the performance problem because none of the components are slow in
+> isolation, the problem comes when lots of components need to run when there's a
+> state update.
+
+> So how do we fix this performance problem? Remember that every perf problem is
+> solved by less code. In this case, the perf problem is coming from running too
+> much code. Often you have components responding to a state change that don't
+> need to. Often we memoize these with `React.memo`, and we could do that to all
+> the components in our app, but there are two problems with this:
+
 ### Production Performance Monitoring
