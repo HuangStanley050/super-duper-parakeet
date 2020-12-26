@@ -326,4 +326,14 @@ In a real world scenario typically with an app you would need some state managem
 > need to. Often we memoize these with `React.memo`, and we could do that to all
 > the components in our app, but there are two problems with this:
 
+1. It increases the complexity of our app (because we have to start using
+   `useCallback` and `useMemo` for literally everything to take advantage of
+   that, meaning you have a bunch of dependency arrays to manage).
+2. React's still doing a bunch of work to check whether these components should
+   be re-rendered.
+
+So how do we fix this? What if we just put less of our state in the global
+store? This is called colocation and it's a really great way to both improve
+performance and maintenance of our app at the same time.
+
 ### Production Performance Monitoring
