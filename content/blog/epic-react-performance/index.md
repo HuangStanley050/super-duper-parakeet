@@ -426,3 +426,20 @@ function App() {
 > monitor.
 
 React team has created an API for this purpose. It's not quite react dev tools but it doesn capture useful information from users.
+
+A basic example to show usage:
+
+Here's a basic usage example:
+
+```javascript
+<React.Profiler />
+```
+
+```javascript
+<App>
+  <Profiler id="Navigation" onRender={onRenderCallback}>
+    <Navigation {...props} />
+  </Profiler>
+  <Main {...props} />
+</App>
+```
