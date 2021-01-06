@@ -28,6 +28,13 @@ ReactDOM.createRoot(rootEl).render(
 );
 ```
 
+> That's the idea. Where the `data` and `promise` values are coming from all
+> depends on how you implement things.
+
+> Imagine when your app loads, you need some data before you can show anything
+> useful. Typically we want to put the data loading requirements right in the
+> component that requires the data, via something like this:
+
 ## Simple Data fetching
 
 ## Render as you fetch
