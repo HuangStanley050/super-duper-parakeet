@@ -35,6 +35,24 @@ ReactDOM.createRoot(rootEl).render(
 > useful. Typically we want to put the data loading requirements right in the
 > component that requires the data, via something like this:
 
+```javascript
+React.useEffect(() => {
+  let current = true;
+  setState({ status: 'pending' });
+  doAsyncThing().then(
+    (p) => {
+      if (current) setState({ pokemon: p, status: 'success' });
+    },
+    (e) => {
+      if (current) setState({ error: e, status: 'error' });
+    }
+  );
+  return () => (current = false);
+}, [pokemonName]);
+
+// render stuff based on the state
+```
+
 ## Simple Data fetching
 
 ## Render as you fetch
