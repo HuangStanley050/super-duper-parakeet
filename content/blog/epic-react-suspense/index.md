@@ -53,6 +53,11 @@ React.useEffect(() => {
 // render stuff based on the state
 ```
 
+However, for "bootstrap" type data, we can start that request before we even
+render the app. The best approaches to using Suspense involve kicking off the
+request for the data as soon as you have the information you need for the
+request. 
+
 ## Simple Data fetching
 
 ## Render as you fetch
