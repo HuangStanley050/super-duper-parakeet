@@ -56,11 +56,22 @@ React.useEffect(() => {
 However, for "bootstrap" type data, we can start that request before we even
 render the app. The best approaches to using Suspense involve kicking off the
 request for the data as soon as you have the information you need for the
-request. 
-
-## Simple Data fetching
+request.
 
 ## Render as you fetch
+
+> The idea here is: get the data **as soon as you have the information you need**
+> for the data. This sounds obvious, but if you think about it, how often do you
+> have a component that requests data once it's been mounted. There's a few
+> milliseconds between the time you click "go" and the time that component is
+> mounted... Unless that component's code is **lazy-loaded**. In which case,
+> there's a lot more time involved (first load the code, then parse the code, then
+> run the code, then render the component, and finally make the request) and your
+> users are hanging around waiting while they could be making requests for the
+> data they need.
+
+> "Render as you fetch" is intended to fix this problem because you can make the
+> request for the code and the data at the same time.
 
 ## useTransition
 
