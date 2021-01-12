@@ -151,6 +151,8 @@ export default App;
 
 ## useTransition
 
+Before the moment when React render the fallback component from suspense there is a brief period that our app will appear to be unresponsive and to avoid that we could use the **useTransition** hook.
+
 ## Cache Resources
 
 ## Suspense Image
