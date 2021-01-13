@@ -153,6 +153,26 @@ export default App;
 
 Before the moment when React render the fallback component from suspense there is a brief period that our app will appear to be unresponsive and to avoid that we could use the **useTransition** hook.
 
+```javascript
+const SUSPENSE_CONFIG = { timeoutMs: 4000 };
+
+function Component() {
+  const [startTransition, isPending] = React.useTransition(SUSPENSE_CONFIG);
+  // etc...
+
+  function handleClick() {
+    // do something that triggers some interim state change we want to
+    // happen before suspending starts
+    startTransition(() => {
+      // do something that triggers a suspending component to render
+    });
+  }
+
+  // if needed, you can use the `isPending` boolean to display a loading spinner
+  // or similar
+}
+```
+
 ## Cache Resources
 
 ## Suspense Image
