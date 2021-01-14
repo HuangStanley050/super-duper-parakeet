@@ -175,6 +175,11 @@ function Component() {
 
 ## Cache Resources
 
+> State that comes from the server is basically a cache of state. It's not UI
+> state. How long that cache sticks around is totally up to you. Right now, our
+> cache only hangs around until we select a new resource, but we could persist it
+> in memory somewhere and retrieve it later if needed.
+
 ## Suspense Image
 
 ## Suspense with a custom hook
