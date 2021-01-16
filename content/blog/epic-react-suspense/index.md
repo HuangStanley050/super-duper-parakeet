@@ -180,6 +180,18 @@ function Component() {
 > cache only hangs around until we select a new resource, but we could persist it
 > in memory somewhere and retrieve it later if needed.
 
+```javascript
+const promiseCache = {};
+function MySuspendingComponent({ value }) {
+  let resource = promiseCache[value];
+  if (!resource) {
+    resource = doAsyncThing(value);
+    promiseCache[value] = resource; // <-- this is very important
+  }
+  return <div>{resource.read()}</div>;
+}
+```
+
 ## Suspense Image
 
 ## Suspense with a custom hook
