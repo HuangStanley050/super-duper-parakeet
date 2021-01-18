@@ -195,11 +195,27 @@ function MySuspendingComponent({ value }) {
 ## Suspense Image
 
 > Loading images is tricky business because you're handing the asynchronous state
-over to the browser. It manages the loading, error, and success states for you.
-But what if you have an experience that doesn't look any good until the image is
-actually loaded? Or what if you want to render a fallback in the image's place
-while it's loading (you want to provide your own loading UI)? In that case,
-you're kinda out of luck, because the browser gives us no such API.
+> over to the browser. It manages the loading, error, and success states for you.
+> But what if you have an experience that doesn't look any good until the image is
+> actually loaded? Or what if you want to render a fallback in the image's place
+> while it's loading (you want to provide your own loading UI)? In that case,
+> you're kinda out of luck, because the browser gives us no such API.
+
+```javascript
+function preloadImage(src) {
+  return new Promise((resolve) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.onload = () => resolve(src);
+  });
+}
+```
+
+> That function will resolve to the source you gave it as soon as the image has
+> loaded. Once that promise resolves, you know that the browser has it in its
+> cache and any `<img />` elements you render with the `src` set to that `src`
+> value will get instantly rendered with the image straight from the browser
+> cache.
 
 ## Suspense with a custom hook
 
