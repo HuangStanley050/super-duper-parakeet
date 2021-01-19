@@ -220,3 +220,17 @@ function preloadImage(src) {
 ## Suspense with a custom hook
 
 ## Coordinate Suspending components with SuspenseList
+
+> When your app is simple, you can pretty much expect everything to be there and
+> load together when you need them, and that works nicely. But when your app grows
+> and you start code splitting and loading data alongside the code that needs it,
+> pretty soon you end up in situations where you have several things loading all
+> at once. Having those all pop into place on the page can be a jarring experience
+> for the user.
+
+> A better experience for the user is a more predictable loading experience, even
+> if it means that they see the data displayed out of order from how it was
+> loaded.
+
+> Coordinating these loading states is a really hard problem, but thanks to
+> Suspense and `<React.SuspenseList />`, it's fairly trivial.
