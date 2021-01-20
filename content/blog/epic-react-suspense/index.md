@@ -217,8 +217,6 @@ function preloadImage(src) {
 > value will get instantly rendered with the image straight from the browser
 > cache.
 
-## Suspense with a custom hook
-
 ## Coordinate Suspending components with SuspenseList
 
 > When your app is simple, you can pretty much expect everything to be there and
@@ -234,3 +232,19 @@ function preloadImage(src) {
 
 > Coordinating these loading states is a really hard problem, but thanks to
 > Suspense and `<React.SuspenseList />`, it's fairly trivial.
+
+[Example from React official](https://reactjs.org/docs/concurrent-mode-reference.html#suspenselist)
+
+```jsx
+<React.SuspenseList revealOrder="forwards">
+  <React.Suspense fallback="Loading...">
+    <ProfilePicture id={1} />
+  </React.Suspense>
+  <React.Suspense fallback="Loading...">
+    <ProfilePicture id={2} />
+  </React.Suspense>
+  <React.Suspense fallback="Loading...">
+    <ProfilePicture id={3} />
+  </React.Suspense>
+</React.SuspenseList>
+```
