@@ -12,3 +12,5 @@ Jenkins is a way to implement continuous integration delivery pipeline which aut
 - initiating code builds
 - running automated tests
 - deploying to a staging or production environment
+
+In this instance, I will be going over a simple E2E automated test when the app is deployed.
