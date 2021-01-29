@@ -60,3 +60,7 @@ void Jobs1() {
   }
 }
 ```
+
+When the application is deployed, the automated job would kick off from the property specified from "upstream"
+
+It would look up the script from "scriptPath", in this instance the script in the app where we would run the e2e is called **Jenkinsfile_E2E**
