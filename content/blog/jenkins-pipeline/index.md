@@ -126,3 +126,19 @@ pipeline {
 }
 
 ```
+
+One of the key information we will be looking at would be:
+
+```
+stage('run E2E') {
+  steps {
+    withCredentials([string(credentialsId: 'npm-pull-key', variable: 'NPM_TOKEN')]) {
+      sh """
+        make e2e NPM_TOKEN=$NPM_TOKEN E2E_ENVIRONMENT=$envString
+      """
+    }
+  }
+}
+```
+
+This step would tell jenkins to run a special **"Makefile"** which builds a docker container and after runs instruction in that container for the e2e tests.
