@@ -64,3 +64,65 @@ void Jobs1() {
 When the application is deployed, the automated job would kick off from the property specified from "upstream"
 
 It would look up the script from "scriptPath", in this instance the script in the app where we would run the e2e is called **Jenkinsfile_E2E**
+
+**Our e2e jenkin script:**
+
+```
+@Library('yourlibrary') _
+
+pipeline {
+  agent { label 'workers' }
+  stages {
+    stage('setup variables') {
+      steps {
+        script {
+          // changed based on different project
+          region = 'ap-southeast-2'
+          account = '000000'
+
+          // Log in to devops ECR
+          sh "aws ecr get-login-password --region ${region} | docker login --username AWS --password-stdin 0000000.dkr.ecr.${region}.amazonaws.com"
+
+          // will be the same for all projects
+          env.HTTP_PROXY = 'yourProxy'
+          env.HTTPS_PROXY = 'yourProxy'
+          env.NO_PROXY = 'localhost,127.0.0.1,ap-southeast-2.amazonaws.com'
+
+          envMap = [
+            'lokiponyssc-e2e-dev-pipeline': 'dev',
+            'lokiponyssc-e2e-sys-pipeline': 'sys'
+          ]
+          envString = envMap[env.JOB_BASE_NAME]
+        }
+        ecrDockerLogin([region: region])
+        checkout scm
+      }
+    }
+
+    stage('run E2E') {
+      steps {
+        withCredentials([string(credentialsId: 'npm-pull-key', variable: 'NPM_TOKEN')]) {
+          sh """
+            make e2e NPM_TOKEN=$NPM_TOKEN E2E_ENVIRONMENT=$envString
+          """
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      archiveArtifacts artifacts: 'e2e/screenshots/*.png', allowEmptyArchive: true
+      archiveArtifacts artifacts: 'e2e/report/*'
+      cucumber failedFeaturesNumber: -1, failedScenariosNumber: -1, failedStepsNumber: -1, fileIncludePattern: '**/*.json', jsonReportDirectory: 'e2e/report', pendingStepsNumber: -1, skippedStepsNumber: -1, sortingMethod: 'ALPHABETICAL', undefinedStepsNumber: -1
+    }
+    success {
+      slackSend color: 'good', botUser: true, message: "*E2E Success* - ${envString} - <${env.BUILD_URL}/cucumber-html-reports/overview-features.html|#${env.BUILD_NUMBER} Report>"
+    }
+    failure {
+      slackSend color: 'danger', botUser: true, message: "*E2E Failure* - ${envString} - <${env.BUILD_URL}/cucumber-html-reports/overview-features.html|#${env.BUILD_NUMBER} Report>"
+    }
+  }
+}
+
+```
