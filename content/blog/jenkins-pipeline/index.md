@@ -142,3 +142,11 @@ stage('run E2E') {
 ```
 
 This step would tell jenkins to run a special **"Makefile"** which builds a docker container and after runs instruction in that container for the e2e tests.
+
+```
+sh """
+  make e2e NPM_TOKEN=$NPM_TOKEN E2E_ENVIRONMENT=$envString
+"""
+```
+
+The **make** command will look for the **Makefile** within the project directory and execute the section within that contains a _e2e_ tag like: **e2e::**
