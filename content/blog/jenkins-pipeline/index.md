@@ -150,3 +150,34 @@ sh """
 ```
 
 The **make** command will look for the **Makefile** within the project directory and execute the section within that contains a _e2e_ tag like: **e2e::**
+
+```
+e2e::
+	@docker build \
+	--tag lokiponyssc_e2e_testing_image \
+	--file dockerfiles/E2EDockerfile \
+	--build-arg HTTP_PROXY=$(HTTP_PROXY) \
+	--build-arg HTTPS_PROXY=$(HTTPS_PROXY) \
+	--build-arg NO_PROXY=$(NO_PROXY) \
+	--build-arg USER=$$(id -u) \
+	--build-arg GROUP=$$(id -g) \
+	--build-arg TESTING_IMAGE_URL=000000.dkr.ecr.ap-southeast-2.amazonaws.com/base/node/testing:12-latest \
+	$(WORKING_DIR)
+
+	@docker run \
+	--rm \
+	--env CI=true \
+	--env FORCE_COLOR=0 \
+	--env HTTP_PROXY=$(HTTP_PROXY) \
+	--env HTTPS_PROXY=$(HTTPS_PROXY) \
+	--env NO_PROXY=$(NO_PROXY) \
+  --volume $(PWD):/usr/src/app \
+	lokiponyssc_e2e_testing_image \
+    bash -c "cd e2e && yarn install --registry https://registry.npmjs.org --pure-lockfile && yarn test:chromeHeadless:$(E2E_ENVIRONMENT)"
+```
+
+Commands here are self explanatory:
+
+1. **build**: build an docker container
+
+2. **run** run the command in the docker container which does the e2e tests.
