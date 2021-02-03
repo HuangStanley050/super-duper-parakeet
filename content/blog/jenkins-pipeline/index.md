@@ -181,3 +181,7 @@ Commands here are self explanatory:
 1. **build**: build an docker container
 
 2. **run** run the command in the docker container which does the e2e tests.
+
+End result if linked up with Slack, looks like this:
+
+![slack](./slack.png)
