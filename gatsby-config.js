@@ -3,8 +3,8 @@ module.exports = {
     title: 'Interesting tech info learned by me',
     author: 'Stanley Huang',
     description:
-      'A blog that documents what I learned on my way to get AWS certified',
-    siteUrl: 'https://www.github.com',
+      'A blog that documents what I learned in my web development journey',
+    siteUrl: 'aws-journey.netlify.app',
     social: {
       twitter: `infamousgodhand`,
     },
