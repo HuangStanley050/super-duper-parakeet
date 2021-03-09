@@ -4,7 +4,7 @@ module.exports = {
     author: 'Stanley Huang',
     description:
       'A blog that documents what I learned in my web development journey',
-    siteUrl: 'aws-journey.netlify.app',
+    siteUrl: 'https://aws-journey.netlify.app',
     social: {
       twitter: `infamousgodhand`,
     },
