@@ -16,3 +16,13 @@ What about front end app? Traditionally it's done as one giant code base but wit
 We could have an app that displays a list of products and a shopping cart, with micro front end what that means is that one engineering team could work on the products portion and the other team could work on the cart portion.
 
 ![mff](./mfe.png)
+
+There are three parts of this:
+
+- **Container**: Holds **Products** and **Cart**
+
+- **Products**: Stand alone application
+
+- **Cart**: Another stand alone application
+
+It's all made possible with the new feature from Webpack, which is called **Module Federation**
