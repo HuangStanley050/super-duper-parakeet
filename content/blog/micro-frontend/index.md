@@ -26,3 +26,9 @@ There are three parts of this:
 - **Cart**: Another stand alone application
 
 It's all made possible with the new feature from Webpack, which is called **Module Federation**
+
+So you would have the container app running on **localhost:8080** and then the product app would run on **localhost:8081** and finally the cart app running on **localhost:8082**
+
+The container app would load the _remote_ module that's running **live** from localhost:8081 and localhost:8082 respectively
+
+## Webpack configuration example:
