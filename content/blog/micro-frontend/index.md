@@ -32,3 +32,85 @@ So you would have the container app running on **localhost:8080** and then the p
 The container app would load the _remote_ module that's running **live** from localhost:8081 and localhost:8082 respectively
 
 ## Webpack configuration example:
+
+### Config for Products:
+
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('./node_modules/webpack/lib/container/ModuleFederationPlugin');
+module.exports = {
+  mode: 'development',
+  devServer: {
+    port: 8081,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'products',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './ProductsIndex': './src/bootstrap',
+      },
+      shared: {
+        faker: { singleton: true },
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './dist/index.html',
+    }),
+  ],
+};
+```
+
+### Config for Cart
+
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('./node_modules/webpack/lib/container/ModuleFederationPlugin');
+module.exports = {
+  mode: 'development',
+  devServer: {
+    port: 8082,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'cart',
+      filename: 'remoteEntry.js',
+      exposes: {
+        './CartShow': './src/bootstrap',
+      },
+      shared: {
+        faker: { singleton: true },
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './dist/index.html',
+    }),
+  ],
+};
+```
+
+### Config for Container
+
+```javascript
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require('./node_modules/webpack/lib/container/ModuleFederationPlugin');
+
+module.exports = {
+  mode: 'development',
+  devServer: {
+    port: 8080,
+  },
+  plugins: [
+    new ModuleFederationPlugin({
+      name: 'container',
+      remotes: {
+        products: 'products@http://localhost:8081/remoteEntry.js',
+        cart: 'cart@http://localhost:8082/remoteEntry.js',
+      },
+    }),
+    new HtmlWebpackPlugin({
+      template: './dist/index.html',
+    }),
+  ],
+};
+```
