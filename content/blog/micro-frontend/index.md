@@ -114,3 +114,32 @@ module.exports = {
   ],
 };
 ```
+
+### How to configure children apps to work both in production and development
+
+So the next thing we need to look at is how to set up the **Product** and **Cart** app so they both would work in production for **Container** app and also stand alone
+
+It's failry straight forward, we need to set up a condition to let the app know that it's running locally and if it's not running locally, it won't do anything but we will also add an export statement so the **Container** app can import and use the app.
+
+#### Example:
+
+```javascript
+import faker from 'faker';
+
+export const mount = htmlElement => {
+  let products = '';
+
+  for (let i = 0; i < 3; i++) {
+    const name = faker.commerce.productName();
+    products += `<div>${name}</div>`;
+  }
+  htmlElement.innerHTML = products;
+};
+
+if (process.env.NODE_ENV === 'development') {
+  const el = document.getElementById('dev-products');
+  if (el) {
+    mount(el);
+  }
+}
+```
