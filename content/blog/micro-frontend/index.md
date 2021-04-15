@@ -143,3 +143,15 @@ if (process.env.NODE_ENV === 'development') {
   }
 }
 ```
+
+## The code for the container app which uses the two remote app:
+
+```javascript
+import { mount as ProductMount } from 'products/ProductsIndex';
+import { mount as CartMount } from 'cart/CartShow';
+console.log('container');
+ProductMount(document.getElementById('my-products'));
+CartMount(document.getElementById('my-cart'));
+```
+
+The statements on line 150 and 151 are from the magic of webpack module federation. It doens't have the modules to load locally so from the webpack config it loads them from the apps **Products** and **Cart**.
