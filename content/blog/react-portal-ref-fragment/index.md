@@ -32,3 +32,16 @@ return (
 ```
 
 Because in Javascript you are only allowed to return one thing and this would apply to React as well.
+
+So usually, you would have it wrapped in a <div> or have a <CustomComponent/> to return the above:
+
+```javascript
+return (
+  <div>
+    <h1>Hello Wolrd</h1>
+    <p>This is now allowed</p>
+  </div>
+);
+```
+
+Using the above usually work in most cases but some issues could rise from that. We could have something called the "div soup"
