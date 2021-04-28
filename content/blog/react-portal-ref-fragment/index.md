@@ -1,5 +1,5 @@
 ---
-title: React Portal, Fragment and Refs
+title: React Portal, Fragment and Refs (Part 1)
 date: '2021-04-28'
 ---
 
@@ -45,3 +45,27 @@ return (
 ```
 
 Using the above usually work in most cases but some issues could rise from that. We could have something called the "div soup"
+
+Unnecessary <div> will be rendered on the DOM even though they are just there to solve the wrapping problem. It is not unrealistic to see this in some of the bigger apps. With the unnecessary <div>, we lose the semantic meaning structure to our code.
+
+Example:
+
+```javascript
+<div>
+  <div>
+    <div>
+      <h1>Hello!</h1>
+    </div>
+  </div>
+</div>
+```
+
+**Problems from above:**
+
+1. It could break the styling
+
+2. Meaningless semantic structure
+
+3. Issues with E2E testing
+
+4. Rendering too many HTML elements thus making the app slower
