@@ -28,3 +28,27 @@ const NoMoreDivSoup = () => {
   );
 };
 ```
+
+### React Fragment
+
+So with react it actually have something like the above Wrapper already and we can use it like:
+
+```javascript
+return (
+  <React.Fragment>
+    <h1>Hey</h1>
+    <p>I am a paragraph</p>
+  </React.Fragment>
+);
+```
+
+or:
+
+```javascript
+return (
+  <>
+    <h1>Hey</h1>
+    <p>I am another paragraph</p>
+  </>
+);
+```
