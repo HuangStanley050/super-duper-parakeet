@@ -42,7 +42,7 @@ return (
 );
 ```
 
-or:
+or (this depends on your build/workflow setup):
 
 ```javascript
 return (
