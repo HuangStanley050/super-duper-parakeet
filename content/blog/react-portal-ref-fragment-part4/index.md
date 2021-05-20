@@ -28,3 +28,11 @@ const ActionButton = ({ label, action }) => {
   }
 }
 ```
+
+**Area for usage:**
+
+### Managing focus, text selection, or media playback.
+
+### Triggering imperative animations.
+
+### Integrating with third-party DOM libraries.
