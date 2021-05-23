@@ -33,6 +33,28 @@ const ActionButton = ({ label, action }) => {
 
 ### Managing focus, text selection, or media playback.
 
+```javascript
+const Demo = () => {
+  const [inputRef, setInputFocus] = useFocusHook();
+
+  return (
+    <>
+      <button onClick={setInputFocus}>FOCUS</button>
+      <input ref={inputRef} />
+    </>
+  );
+};
+
+const useFocusHook = () => {
+  const htmlElRef = useRef(null);
+  const setFocus = () => {
+    htmlElRef.current && htmlElRef.current.focus();
+  };
+
+  return [htmlElRef, setFocus];
+};
+```
+
 ### Triggering imperative animations.
 
 ### Integrating with third-party DOM libraries.
