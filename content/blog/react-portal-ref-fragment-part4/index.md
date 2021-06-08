@@ -57,4 +57,36 @@ const useFocusHook = () => {
 
 ### Triggering imperative animations.
 
+```javascript
+import React, { useEffect, useState, useRef } from 'react';
+
+function Animation() {
+  const [background, setBackground] = useState('blue');
+
+  const divRef = useRef();
+
+  function onScroll(params) {
+    const div = divRef.current;
+    const { y } = div.getBoundingClientRect();
+    const backgroundColor = y <= 0 ? 'blue' : 'pink';
+    setBackground(backgroundColor);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll');
+    };
+  }, []);
+
+  return (
+    <div ref={divRef} style={{ height: '120vh', background: background }}>
+      Scroll to turn background pink.
+    </div>
+  );
+}
+
+export default Animation;
+```
+
 ### Integrating with third-party DOM libraries.
