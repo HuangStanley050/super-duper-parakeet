@@ -20,3 +20,27 @@ const Example2 = () => {
   return <div>I am Example 1</div>;
 };
 ```
+
+And if you were to make a custom hook:
+
+```javascript
+import { useState, useEffect } from 'react';
+
+const useCustomHook = () => {
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState({});
+  const requestData = () => {
+    return new Promise(resolve => resolve('Data fetched'));
+  };
+  useEffect(async () => {
+    setLoading(true);
+    let result = await requestData();
+    setLoading(false);
+    setData(result);
+  }, []);
+  return {
+    loading,
+    data,
+  };
+};
+```
