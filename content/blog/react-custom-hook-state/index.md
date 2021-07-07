@@ -26,7 +26,7 @@ And if you were to make a custom hook:
 ```javascript
 import { useState, useEffect } from 'react';
 
-const useCustomHook = () => {
+export const useCustomHook = () => {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState({});
   const requestData = () => {
@@ -42,5 +42,31 @@ const useCustomHook = () => {
     loading,
     data,
   };
+};
+```
+
+And if the custom hooks are used in either of the components:
+
+```javascript
+import { useCustomHook } from './hooks';
+
+const Example1 = () => {
+  const { loading, data } = useCustomHook();
+  return (
+    <>
+      <div>I am Example 1</div>
+      <h1>Loading status: {loading}</h1>
+    </>
+  );
+};
+
+const Example2 = () => {
+  const { loading, data } = useCustomHook();
+  return (
+    <>
+      <div>I am Example 1</div>
+      <h1>Loading status: {loading}</h1>
+    </>
+  );
 };
 ```
