@@ -70,3 +70,7 @@ const Example2 = () => {
   );
 };
 ```
+
+The "loading" and "data" states in both Example1 and Example2 components are both isolated in the component which the custom hook is used. So we don't have to worry about the clashing of states, this could be useful when the Example1 and Example2 are used in different part of the codebase and at different times.
+
+[More info from office site](https://reactjs.org/docs/hooks-custom.html)
